@@ -45,6 +45,9 @@ siteskin_include( '_site_body_header.inc.php' );
 	<!-- Google font: Sans Open -->
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
 	
+	<!-- Navigataur -->
+	<link rel="stylesheet" href="/skins/Horizon/navigataur.css" />
+	
 	
 	<?php 
 	// Use font-awesome icons, @see get_icon()
@@ -96,7 +99,10 @@ siteskin_include( '_site_body_header.inc.php' );
 	<div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<ul class="nav nav-tabs">
+			<div class="drop">
+			<input type="checkbox" id="toggle" />
+			<label for="toggle" class="toggle" onclick></label>
+			<ul class="menu">
 	<?php
 		// ------------------------- "Menu" CONTAINER EMBEDDED HERE --------------------------
 		// Display container and contents:
@@ -118,6 +124,7 @@ siteskin_include( '_site_body_header.inc.php' );
 		// ----------------------------- END OF "Menu" CONTAINER -----------------------------
 	?>
 			</ul>
+		</div>
 		</div>
 	</div>
 	</div>
@@ -401,8 +408,11 @@ siteskin_include( '_site_body_header.inc.php' );
 		</div>
 	<?php } ?>
 	</div>
+</div><!-- ../container -->
 
 <!-- =================================== START OF FOOTER =================================== -->
+<div class="footer-wrapper">
+	<div class="container">
 	<div class="row">
 		<div class="col-md-12 center">
 	<?php
@@ -466,6 +476,7 @@ siteskin_include( '_site_body_header.inc.php' );
 	?>
 
 		</div>
+	</div>
 	</div>
 </div>
 <?php
