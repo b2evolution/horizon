@@ -42,6 +42,11 @@ siteskin_include( '_site_body_header.inc.php' );
 // ------------------------------- END OF SITE HEADER --------------------------------
 ?>
 
+	<!-- Google font: Sans Open -->
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+	
+	<!-- Navigataur -->
+	<link rel="stylesheet" href="/skins/Horizon/navigataur.css" />
 	
 	
 	<?php 
@@ -51,6 +56,7 @@ siteskin_include( '_site_body_header.inc.php' );
 	// Load Font Awesome:
 	require_css( 'http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css' );
 	?>
+	
 <div class="pageHeader">
 	
 	<div class="row">
@@ -125,8 +131,7 @@ siteskin_include( '_site_body_header.inc.php' );
 
 <!-- =================================== START OF MAIN AREA =================================== -->
 	<div class="row">
-		<div class="<?php echo ( $Skin->get_setting( 'layout' ) == 'single_column' ? 'col-md-12' : 'col-md-9' ); ?>"<?php
-				echo ( $Skin->get_setting( 'layout' ) == 'left_sidebar' ? ' style="float:right;"' : '' ); ?>>
+        <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
 
 	<?php
 	if( ! in_array( $disp, array( 'login', 'lostpassword', 'register', 'activateinfo' ) ) )
@@ -346,6 +351,8 @@ siteskin_include( '_site_body_header.inc.php' );
 				'preview_start'         => '<div class="panel panel-warning" id="comment_preview">',
 				'preview_end'           => '</div>',
 				// Front page
+				'featured_intro_before' => '<div class="jumbotron">',
+				'featured_intro_after'  => '</div>',
 				// Form "Sending a message"
 				'msgform_form_title' => T_('Sending a message'),
 			) );
@@ -360,51 +367,12 @@ siteskin_include( '_site_body_header.inc.php' );
 	{
 	?>
 <!-- =================================== START OF SIDEBAR =================================== -->
-		<div class="col-md-3"<?php echo ( $Skin->get_setting( 'layout' ) == 'left_sidebar' ? ' style="float:left;"' : '' ); ?>>
-
-	<?php
-		// ------------------------- "Sidebar" CONTAINER EMBEDDED HERE --------------------------
-		// Display container contents:
-		skin_container( NT_('Sidebar'), array(
-				// The following (optional) params will be used as defaults for widgets included in this container:
-				// This will enclose each widget in a block:
-				'block_start' => '<div class="panel panel-default widget $wi_class$">',
-				'block_end' => '</div>',
-				// This will enclose the title of each widget:
-				'block_title_start' => '<div class="panel-heading"><h4 class="panel-title">',
-				'block_title_end' => '</h4></div>',
-				// This will enclose the body of each widget:
-				'block_body_start' => '<div class="panel-body">',
-				'block_body_end' => '</div>',
-				// If a widget displays a list, this will enclose that list:
-				'list_start' => '<ul>',
-				'list_end' => '</ul>',
-				// This will enclose each item in a list:
-				'item_start' => '<li>',
-				'item_end' => '</li>',
-				// This will enclose sub-lists in a list:
-				'group_start' => '<ul>',
-				'group_end' => '</ul>',
-				// This will enclose (foot)notes:
-				'notes_start' => '<div class="notes">',
-				'notes_end' => '</div>',
-				// Widget 'Search form':
-				'search_class'         => 'compact_search_form',
-				'search_input_before'  => '<div class="input-group">',
-				'search_input_after'   => '',
-				'search_submit_before' => '<span class="input-group-btn">',
-				'search_submit_after'  => '</span></div>',
-			) );
-		// ----------------------------- END OF "Sidebar" CONTAINER -----------------------------
-	?>
-		</div>
+		
+		
 	<?php } ?>
 	</div>
-</div><!-- ../container -->
 
 <!-- =================================== START OF FOOTER =================================== -->
-<div class="footer-wrapper">
-	<div class="container">
 	<div class="row">
 		<div class="col-md-12 center">
 	<?php
@@ -469,8 +437,8 @@ siteskin_include( '_site_body_header.inc.php' );
 
 		</div>
 	</div>
-	</div>
 </div>
+
 <?php
 // ---------------------------- SITE FOOTER INCLUDED HERE ----------------------------
 // If site footers are enabled, they will be included here:
