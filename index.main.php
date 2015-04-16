@@ -42,8 +42,6 @@ siteskin_include( '_site_body_header.inc.php' );
 // ------------------------------- END OF SITE HEADER --------------------------------
 ?>
 
-	
-	
 	<?php 
 	// Use font-awesome icons, @see get_icon()
 	global $b2evo_icons_type;
@@ -51,8 +49,15 @@ siteskin_include( '_site_body_header.inc.php' );
 	// Load Font Awesome:
 	require_css( 'http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css' );
 	?>
-<div class="pageHeader">
+	<script>
+	$('.image_block').hover(function() {
+    $(this).find('img').fadeTo(500, 0.5);
+}, function() {
+    $(this).find('img').fadeTo(500, 1);
+});
+</script>
 	
+<div class="pageHeader">
 	<div class="row">
 		<div class="coll-xs-12 coll-sm-12 col-md-4 col-md-push-8">
 			<div class="PageTop">
@@ -74,6 +79,7 @@ siteskin_include( '_site_body_header.inc.php' );
 			</div>
 		</div>
 	</div>
+	
 	<?php
 		// ------------------------- "Header" CONTAINER EMBEDDED HERE --------------------------
 		// Display container and contents:
@@ -86,6 +92,7 @@ siteskin_include( '_site_body_header.inc.php' );
 			) );
 		// ----------------------------- END OF "Header" CONTAINER -----------------------------
 	?>
+	
 </div>
 <div class="container">
 
