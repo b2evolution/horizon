@@ -93,22 +93,6 @@ echo $params['html_tag'];
 		$Blog->disp( 'user_css', 'raw');
 		$Blog->disp_setting( 'head_includes', 'raw');
 	?>
-	<!-- Less.js -->
-	<script>
-		less = {
-			env: "development",
-			async: false,
-			fileAsync: false,
-			poll: 1000,
-			functions: {},
-			dumpLineNumbers: "comments",
-			relativeUrls: false,
-			rootpath: ":/a.com/"
-		};
-	</script>
-	<script src="less.js" data-poll="1000" data-relative-urls="false"></script>
-	<link data-dump-line-numbers="all" data-global-vars='{ myvar: "#ddffee", mystr: "\"quoted\"" }' rel="stylesheet/less" type="text/css" href="style.less">
-	<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.0/less.min.js"></script>
 	
 	<!-- Google font: Sans Open -->
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>	
