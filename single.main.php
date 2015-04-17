@@ -371,8 +371,11 @@ siteskin_include( '_site_body_header.inc.php' );
 		
 	<?php } ?>
 	</div>
+</div><!-- ../container -->
 
 <!-- =================================== START OF FOOTER =================================== -->
+<div class="footer-wrapper">
+	<div class="container">
 	<div class="row">
 		<div class="col-md-12 center">
 	<?php
@@ -436,6 +439,7 @@ siteskin_include( '_site_body_header.inc.php' );
 	?>
 
 		</div>
+	</div>
 	</div>
 </div>
 
