@@ -58,7 +58,7 @@ siteskin_include( '_site_body_header.inc.php' );
 	?>
 	
 <div class="pageHeader">
-	
+	<div class="container">
 	<div class="row">
 		<div class="coll-xs-12 coll-sm-12 col-md-4 col-md-push-8">
 			<div class="PageTop">
@@ -79,6 +79,7 @@ siteskin_include( '_site_body_header.inc.php' );
 	?>
 			</div>
 		</div>
+	</div>
 	</div>
 	<?php
 		// ------------------------- "Header" CONTAINER EMBEDDED HERE --------------------------

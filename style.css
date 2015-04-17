@@ -777,13 +777,30 @@ a:hover {
 .image_block .img-responsive:hover {
   opacity: 0.8;
 }
+.pager li {
+  display: inline-block;
+  width: 50%;
+  border-radius: 0px 0px 0px 0px;
+}
+.pager li:first-child {
+  border-right: 1px solid #eee;
+}
 .pager li a {
+  width: 100%;
   border: none;
+  border-radius: 0px 0px 0px 0px;
+  padding-bottom: 10px;
 }
 .pager li a:hover {
+  background-color: #eee;
+}
+.pager li a :before {
   background-color: #ffffff;
 }
-.pager li a:before {
+.pager li a:hover:before {
+  background-color: #eee;
+}
+.pager li a::before {
   background-color: #ffffff;
 }
 .col-sm-12 h2 {
