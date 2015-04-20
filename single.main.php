@@ -43,11 +43,7 @@ siteskin_include( '_site_body_header.inc.php' );
 ?>
 
 	<!-- Google font: Sans Open -->
-	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
-	
-	<!-- Navigataur -->
-	<link rel="stylesheet" href="/skins/Horizon/navigataur.css" />
-	
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>	
 	
 	<?php 
 	// Use font-awesome icons, @see get_icon()
@@ -221,16 +217,18 @@ siteskin_include( '_site_body_header.inc.php' );
 			skin_include( '_item_block.inc.php', array(
 					'content_mode' => 'auto',		// 'auto' will auto select depending on $disp-detail
 					// Comment template
-					'comment_start'         => '<div class="panel panel-default">',
+					'comment_start'         => '<div class="evoComment panel panel-default">',
 					'comment_end'           => '</div>',
-					'comment_title_before'  => '<div class="panel-heading">',
-					'comment_title_after'   => '',
-					'comment_rating_before' => '<div class="comment_rating floatright">',
+					'comment_title_before'  => '<div class="panel-heading"><h4 class="evoComment-title panel-title">',
+					'comment_title_after'   => '</h4></div><div class="panel-body">',
+					'comment_avatar_before' => '<div class="evoComment-avatar">',
+					'comment_avatar_after'  => '</div>',
+					'comment_rating_before' => '<div class="evoComment-rating">',
 					'comment_rating_after'  => '</div>',
-					'comment_text_before'   => '</div><div class="panel-body">',
-					'comment_text_after'    => '',
-					'comment_info_before'   => '<div class="bCommentSmallPrint">',
-					'comment_info_after'    => '</div></div>',
+					'comment_text_before'   => '<div class="evoComment-text">',
+					'comment_text_after'    => '</div>',
+					'comment_info_before'   => '<div class="evoComment-info clear text-muted"><small>',
+					'comment_info_after'    => '</small></div></div>',
 					'preview_start'         => '<div class="panel panel-warning" id="comment_preview">',
 					'preview_end'           => '</div>',
 					'comment_attach_info'   => get_icon( 'help', 'imgtag', array(
@@ -336,21 +334,28 @@ siteskin_include( '_site_body_header.inc.php' );
 				'search_submit_before' => '<span class="input-group-btn">',
 				'search_submit_after'  => '</span></div>',
 				// Comment template
-				'comment_avatar_position' => 'before_text',
-				'comment_start'         => '<div class="panel panel-default">',
+				'comment_start'         => '<div class="evoComment panel panel-default">',
 				'comment_end'           => '</div>',
-				'comment_post_before'   => '<div class="panel-heading"><h4 class="bTitle floatleft">',
+				'comment_post_before'   => '<div class="panel-heading"><h4 class="panel-title pull-left">',
 				'comment_post_after'    => '</h4>',
-				'comment_title_before'  => '<div class="floatright">',
-				'comment_title_after'   => '</div><div class="clear"></div></div><div class="panel-body">',
-				'comment_rating_before' => '<div class="comment_rating floatright">',
+				'comment_title_before'  => '<h4 class="panel-title pull-right">',
+				'comment_title_after'   => '</h4><div class="clearfix"></div></div><div class="panel-body">',
+				'comment_avatar_before' => '<div class="evoComment-avatar">',
+				'comment_avatar_after'  => '</div>',
+				'comment_rating_before' => '<div class="evoComment-rating">',
 				'comment_rating_after'  => '</div>',
-				'comment_text_before'   => '',
-				'comment_text_after'    => '',
-				'comment_info_before'   => '<div class="bCommentSmallPrint">',
-				'comment_info_after'    => '</div></div>',
-				'preview_start'         => '<div class="panel panel-warning" id="comment_preview">',
-				'preview_end'           => '</div>',
+				'comment_text_before'   => '<div class="evoComment-text">',
+				'comment_text_after'    => '</div>',
+				'comment_info_before'   => '<div class="evoComment-info clear text-muted"><small>',
+				'comment_info_after'    => '</small></div></div>',
+				'comment_attach_info'   => get_icon( 'help', 'imgtag', array(
+						'data-toggle'    => 'tooltip',
+						'data-placement' => 'bottom',
+						'data-html'      => 'true',
+						'title'          => htmlspecialchars( get_upload_restriction( array(
+								'block_after'     => '',
+								'block_separator' => '<br /><br />' ) ) )
+					) ),
 				// Front page
 				'featured_intro_before' => '<div class="jumbotron">',
 				'featured_intro_after'  => '</div>',

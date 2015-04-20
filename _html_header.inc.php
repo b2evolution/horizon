@@ -96,6 +96,14 @@ echo $params['html_tag'];
 	
 	<!-- Google font: Sans Open -->
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>	
+	
+	<?php 
+	// Use font-awesome icons, @see get_icon()
+	global $b2evo_icons_type;
+	$b2evo_icons_type = 'fontawesome'; // alternatively : 'glyph'
+	// Load Font Awesome:
+	require_css( 'http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css' );
+	?>
 </head>
 
 <body<?php skin_body_attrs( array( 'class' => $params['body_class'] ) ); ?>>
