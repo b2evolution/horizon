@@ -435,7 +435,7 @@ div.log_container {
     padding: 0;
   }
 }
-.image-style {
+.image-style, .evoComment-avatar img {
   border-radius: 5px;
   -webkit-box-shadow: 3px 15px 5px -10px rgba(0,0,0,0.25);
   -moz-box-shadow: 3px 15px 5px -10px rgba(0,0,0,0.25);
@@ -853,7 +853,7 @@ a:hover {
   background-color: #ffffff;
   text-decoration: underline;
 }
-.bPost .panel-default .SaveButton {
+.bPost .panel-default .SaveButton, .form-horizontal .SaveButton.btn-primary {
   font-size: 16px;
   padding: 15px 10px;
   background-color: #697b94;
@@ -862,11 +862,11 @@ a:hover {
   -webkit-transition: all 0.25s ease-out;
   transition: all 0.25s ease-out;
 }
-.bPost .panel-default .SaveButton:hover {
+.bPost .panel-default .SaveButton:hover, .form-horizontal .SaveButton.btn-primary:hover {
   background-color: transparent;
   color: #697b94;
 }
-.bPost .panel-default .preview {
+.bPost .panel-default .preview, .form-horizontal .SaveButton.btn-info {
   font-size: 16px;
   padding: 15px 10px;
   border: 1px solid rgba(0,0,0,0.1);
@@ -874,8 +874,9 @@ a:hover {
   color: #697b94;
   -webkit-transition: all 0.25s ease-out;
   transition: all 0.25s ease-out;
+  background-color: white;
 }
-.bPost .panel-default .preview:hover {
+.bPost .panel-default .preview:hover, .form-horizontal .SaveButton.btn-info:hover {
   border: 1px solid #697b94;
   background-color: transparent;
 }
@@ -1020,6 +1021,12 @@ a:hover {
   -webkit-box-shadow: 3px 15px 5px -10px rgba(0,0,0,0.25);
   -moz-box-shadow: 3px 15px 5px -10px rgba(0,0,0,0.25);
   box-shadow: 3px 15px 5px -10px rgba(0,0,0,0.25);
+  opacity: 1;
+  -webkit-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+}
+.loadimg:hover {
+  opacity: 0.8;
 }
 table.widget_grid img {
   padding: 0px !important;
@@ -1070,10 +1077,10 @@ table.widget_grid img {
   padding-top: 25px;
   padding-bottom: 25px;
 }
-.widget_core_coll_xml_feeds .notes a {
+.widget_core_coll_xml_feeds .notes a, .comment_notification a {
   color: #697b94;
 }
-.widget_core_coll_xml_feeds .notes a:hover {
+.widget_core_coll_xml_feeds .notes a:hover, .comment_notification a:hover {
   text-decoration: underline;
   color: #222;
 }
@@ -1272,7 +1279,7 @@ table.widget_grid img {
     font-size: 1.3em !important;
   }
   .PageTop {
-    dosplay: none;
+    display: none;
   }
 }
 @media only screen and (max-width: 479px) {
@@ -1286,10 +1293,93 @@ table.widget_grid img {
     padding-right: 20px !important;
   }
   .pageHeader {
-    padding-top: 70px !important;
+    padding-top: 0px !important;
   }
 }
 
-.col-md-12 .field_required {
-	background-color: black !important;
+/* FIXES */
+.widget_core_coll_post_list ul li .default {
+  vertical-align: top;
+}
+.col-md-9 ul .all:hover, .col-md-9  ul .last:hover, .col-md-9  ul .all .last:hover {
+  text-decoration: underline;
+}
+.evoComment {
+  color: #222;
+  border: none;
+  border-top: 2px solid #bbb;
+  box-shadow: none;
+  border-radius: 0px;
+  margin-bottom: 70px;
+}
+.evoComment .panel-body {
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0px 0px 5px 5px;
+}
+h4.pull-right {
+  float: none !important;
+  font-style: italic;
+  clear: both;
+  font-size: 16px;
+}
+h4.pull-right .bComment-type, h4.pull-right span, h4.pull-right .user  {
+	color: #697b94;
+}
+h4.pull-right .bComment-type:hover, h4.pull-right .user:hover {
+	background-color: white !important;
+	text-decoration: underline;
+}
+/* Plugins Widgets */
+.widget_plugin_evo_WhosOnline ul {
+  padding-top: 10px;
+}
+.widget_plugin_evo_WhosOnline ul li {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.3em;
+}
+.widget_plugin_evo_Arch ul li a {
+  font-size: 18px;
+  line-height: 1.5em;
+  color: #697b94;
+}
+.widget_plugin_evo_WhosOnline span {
+  font-size: 18px;
+}
+.widget_plugin_evo_Calr {
+  font-size: 15px;
+}
+.widget_plugin_evo_Calr a {
+  color: #697b94;
+}
+.bCalendarTable {
+  border-top: 3px solid #697b94;
+  border-bottom: 3px solid #697b94;
+  border-radius: 5px;
+}
+.widget_plugin_evo_Calr caption {
+  text-align: center;
+}
+.widget_plugin_evo_Calr caption a {
+  font-size: 19px;
+}
+.widget_plugin_evo_Calr tbody .bCalendarCell {
+  width: 40px;
+}
+#bCalendarToday {
+  border: none;
+  border-radius: 25px;
+  background-color: #5d4a55;
+  color: #fff;
+  font-weight: bold;
+}
+.bCalendarLinkPost {
+  border-radius: 10px;
+  background-color: #e2e3e8;
+  color: #fff;
+  font-weight: bold;
+}
+.col-md-3 .widget_plugin_evo_facebook {
+	margin-bottom: -20px;
 }
