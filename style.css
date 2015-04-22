@@ -1084,17 +1084,7 @@ table.widget_grid img {
   text-decoration: underline;
   color: #222;
 }
-.sitewide_footer {
-  text-decoration: none;
-  background-color: rgba(0,0,0,0);
-  padding: 0px !important;
-  margin: 0px !important;
-  font-size: 18px;
-  border-top: none !important;
-  box-shadow: none !important;
-  background-color: #222 !important;
-  padding: 25px !important;
-}
+
 .footer-wrapper {
   text-decoration: none;
   background-color: rgba(0,0,0,0);
@@ -1124,10 +1114,6 @@ table.widget_grid img {
   margin: 12px;
   vertical-align: text-top;
   text-align: left;
-}
-.sitewide_footer p {
-  font-size: 15px;
-  padding: 10px;
 }
 @media only screen and (max-width: 992px) {
   .pagination {
