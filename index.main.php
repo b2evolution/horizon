@@ -118,7 +118,13 @@ siteskin_include( '_site_body_header.inc.php' );
 	</div>
 	</div>
 
-	<?php
+<!-- =================================== START OF MAIN AREA =================================== -->
+	<div class="row">
+		<div class="<?php echo ( $Skin->get_setting( 'layout' ) == 'single_column' ? 'col-md-12' : 'col-md-9' ); ?>"<?php
+				echo ( $Skin->get_setting( 'layout' ) == 'left_sidebar' ? ' style="float:right;"' : '' ); ?>>
+				
+				
+		<?php
 	if( ! in_array( $disp, array( 'login', 'lostpassword', 'register', 'activateinfo' ) ) )
 	{ // Don't display the messages here because they are displayed inside wrapper to have the same width as form
 		// ------------------------- MESSAGES GENERATED FROM ACTIONS -------------------------
@@ -129,11 +135,6 @@ siteskin_include( '_site_body_header.inc.php' );
 		// --------------------------------- END OF MESSAGES ---------------------------------
 	}
 	?>
-
-<!-- =================================== START OF MAIN AREA =================================== -->
-	<div class="row">
-		<div class="<?php echo ( $Skin->get_setting( 'layout' ) == 'single_column' ? 'col-md-12' : 'col-md-9' ); ?>"<?php
-				echo ( $Skin->get_setting( 'layout' ) == 'left_sidebar' ? ' style="float:right;"' : '' ); ?>>
 
 	<?php
 		// ------------------- PREV/NEXT POST LINKS (SINGLE POST MODE) -------------------

@@ -1309,7 +1309,7 @@ h4.pull-right {
   clear: both;
   font-size: 16px;
 }
-h4.pull-right .bComment-type, h4.pull-right span, h4.pull-right .user  {
+h4.pull-right .bComment-type, h4.pull-right span, h4.pull-right .user, li .login.user.nowrap  {
 	color: #697b94;
 }
 h4.pull-right .bComment-type:hover, h4.pull-right .user:hover {
@@ -1368,4 +1368,7 @@ h4.pull-right .bComment-type:hover, h4.pull-right .user:hover {
 }
 .col-md-3 .widget_plugin_evo_facebook {
 	margin-bottom: -20px;
+}
+.close {
+margin-top: 5px;
 }
