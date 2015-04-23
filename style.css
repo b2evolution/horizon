@@ -1298,9 +1298,16 @@ table.widget_grid img {
   border-radius: 0px;
   margin-bottom: 70px;
 }
-.evoComment .panel-body {
+#styled_content_block .evoComment .panel-body {
   border: 1px solid #ddd;
   border-top: none;
+  border-radius: 0px 0px 5px 5px;
+}
+#styled_content_block .bPost .evoComment .panel-body {
+  border-top: 1px dashed #222 !important;
+  border-left: 0px solid #ddd;
+  border-right: 0px solid #ddd;
+  border-bottom: 0px solid #ddd;
   border-radius: 0px 0px 5px 5px;
 }
 h4.pull-right {
