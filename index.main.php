@@ -45,8 +45,7 @@ siteskin_include( '_site_body_header.inc.php' );
 <div class="pageHeader">
 	<div class="container">
 	<div class="row">
-		<div class="coll-xs-12 coll-sm-12 col-md-4 col-md-push-8">
-			<div class="PageTop">
+		<div class="PageTop col-lg-12">
 	<?php
 		// ------------------------- "Page Top" CONTAINER EMBEDDED HERE --------------------------
 		// Display container and contents:
@@ -62,7 +61,6 @@ siteskin_include( '_site_body_header.inc.php' );
 			) );
 		// ----------------------------- END OF "Page Top" CONTAINER -----------------------------
 	?>
-			</div>
 		</div>
 	</div>
 	</div>
@@ -85,8 +83,6 @@ siteskin_include( '_site_body_header.inc.php' );
 <div class="container">
 
 <!-- BLOG NAVIGATION MENU -->
-	<div class="container">
-	<div class="row">
 		<div class="col-md-12">
 			<div class="drop">
 			<input type="checkbox" id="toggle" />
@@ -115,8 +111,9 @@ siteskin_include( '_site_body_header.inc.php' );
 			</ul>
 		</div>
 		</div>
-	</div>
-	</div>
+</div>
+
+<div class="container">
 
 <!-- =================================== START OF MAIN AREA =================================== -->
 	<div class="row">
