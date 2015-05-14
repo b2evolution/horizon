@@ -375,15 +375,15 @@ div.action_messages,
 div.log_container {
   margin: 0;
 }
-.post_title {
+.evo_post_title {
   display: table;
 }
-.post_title h2 {
+.evo_post_title h2 {
   display: table-cell;
   margin: 0;
   padding: 20px 0 10px;
 }
-.post_title .btn-group {
+.evo_post_title .btn-group {
   display: table-cell;
   padding: 20px 0 10px 30px;
   vertical-align: middle;
@@ -454,7 +454,7 @@ div.log_container {
   padding-top: 25px;
 }
 .container li a,
-.post_title h2 a,
+.evo_post_title h2 a,
 .bPost h2,
 .feedback_feed_msg a {
   display: inline-block;
@@ -469,11 +469,11 @@ div.log_container {
   overflow: hidden;
 }
 .container li a:before,
-.post_title h2 a:before,
+.evo_post_title h2 a:before,
 .bPost h2:before,
 .feedback_feed_msg a:before,
 .container li a:before,
-.post_title h2 a:before,
+.evo_post_title h2 a:before,
 .bPost h2:before,
 .feedback_feed_msg a:before {
   content: "";
@@ -495,9 +495,9 @@ div.log_container {
 .container li a:hover:before,
 .container li a:focus:before,
 .container li a:active:before,
-.post_title h2 a:hover:before,
-.post_title h2 a:focus:before,
-.post_title h2 a:active:before,
+.evo_post_title h2 a:hover:before,
+.evo_post_title h2 a:focus:before,
+.evo_post_title h2 a:active:before,
 .bPost h2:hover:before,
 .bPost h2:focus:before,
 .bPost h2:active:before,
@@ -516,7 +516,7 @@ div.log_container {
   color: #333333 !important;
   text-decoration: none;
 }
-.post_title h2 a:hover,
+.evo_post_title h2 a:hover,
 .bPost h2 a:hover {
   color: #333333 !important;
 }
@@ -701,10 +701,10 @@ a:hover {
 .clearfix:after {
   clear: both;
 }
-.post_title h2 a {
+.evo_post_title h2 a {
   color: #5d4a55;
 }
-.post_title h2 a:hover {
+.evo_post_title h2 a:hover {
   color: #5d4a55;
 }
 .pagination li span {
