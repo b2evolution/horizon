@@ -48,17 +48,16 @@ siteskin_include( '_site_body_header.inc.php' );
 	require_css( 'http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css' );
 	?>
 	
-<div class="pageHeader">
+<div class="evo_container evo_container__header">
 	<div class="container">
-	<div class="row">
-		<div class="coll-xs-12 coll-sm-12 col-md-4 col-md-push-8">
-			<div class="PageTop">
+	<header class="row">
+		<div class="evo_container evo_container__page_top col-lg-12">
 	<?php
 		// ------------------------- "Page Top" CONTAINER EMBEDDED HERE --------------------------
 		// Display container and contents:
 		skin_container( NT_('Page Top'), array(
 				// The following params will be used as defaults for widgets included in this container:
-				'block_start'         => '<div class="widget $wi_class$">',
+				'block_start'         => '<div class="evo_widget $wi_class$">',
 				'block_end'           => '</div>',
 				'block_display_title' => false,
 				'list_start'          => '<ul>',
@@ -68,16 +67,15 @@ siteskin_include( '_site_body_header.inc.php' );
 			) );
 		// ----------------------------- END OF "Page Top" CONTAINER -----------------------------
 	?>
-			</div>
 		</div>
-	</div>
+	</header>
 	</div>
 	<?php
 		// ------------------------- "Header" CONTAINER EMBEDDED HERE --------------------------
 		// Display container and contents:
 		skin_container( NT_('Header'), array(
 				// The following params will be used as defaults for widgets included in this container:
-				'block_start'       => '<div class="widget $wi_class$">',
+				'block_start'       => '<div class="evo_widget $wi_class$">',
 				'block_end'         => '</div>',
 				'block_title_start' => '<h1>',
 				'block_title_end'   => '</h1>',
@@ -85,12 +83,11 @@ siteskin_include( '_site_body_header.inc.php' );
 		// ----------------------------- END OF "Header" CONTAINER -----------------------------
 	?>
 </div>
+
 <div class="container">
 
 <!-- BLOG NAVIGATION MENU -->
-	<div class="container">
-	<div class="row">
-		<div class="col-md-12">
+		<nav class="col-md-12">
 			<div class="drop">
 			<input type="checkbox" id="toggle" />
 			<label for="toggle" class="toggle" onclick></label>
@@ -106,9 +103,9 @@ siteskin_include( '_site_body_header.inc.php' );
 				'block_display_title' => false,
 				'list_start'          => '',
 				'list_end'            => '',
-				'item_start'          => '<li>',
+				'item_start'          => '<li class="evo_widget $wi_class$">',
 				'item_end'            => '</li>',
-				'item_selected_start' => '<li class="active">',
+				'item_selected_start' => '<li class="active evo_widget $wi_class$">',
 				'item_selected_end'   => '</li>',
 				'item_title_before'   => '',
 				'item_title_after'    => '',
@@ -117,10 +114,10 @@ siteskin_include( '_site_body_header.inc.php' );
 	?>
 			</ul>
 		</div>
-		</div>
-	</div>
-	</div>
+		</nav>
+</div>
 
+<div class="container">
 <!-- =================================== START OF MAIN AREA =================================== -->
 	<div class="row">
         <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
@@ -148,24 +145,6 @@ siteskin_include( '_site_body_header.inc.php' );
 				'block_end'   => '</ul>',
 			) );
 		// ------------------------- END OF PREV/NEXT POST LINKS -------------------------
-	?>
-
-	<?php
-		// ------------------------ TITLE FOR THE CURRENT REQUEST ------------------------
-		request_title( array(
-				'title_before'      => '<h2>',
-				'title_after'       => '</h2>',
-				'title_none'        => '',
-				'glue'              => ' - ',
-				'title_single_disp' => true,
-				'format'            => 'htmlbody',
-				'register_text'     => '',
-				'login_text'        => '',
-				'lostpassword_text' => '',
-				'account_activation' => '',
-				'msgform_text'      => '',
-			) );
-		// ----------------------------- END OF REQUEST TITLE ----------------------------
 	?>
 
 	<?php
@@ -351,9 +330,6 @@ siteskin_include( '_site_body_header.inc.php' );
 								'block_after'     => '',
 								'block_separator' => '<br /><br />' ) ) )
 					) ),
-				// Front page
-				'featured_intro_before' => '<div class="jumbotron">',
-				'featured_intro_after'  => '</div>',
 				// Form "Sending a message"
 				'msgform_form_title' => T_('Sending a message'),
 			) );
@@ -377,12 +353,14 @@ siteskin_include( '_site_body_header.inc.php' );
 <!-- =================================== START OF FOOTER =================================== -->
 <div class="footer-wrapper">
 	<div class="container">
-	<div class="row">
+	<footer class="row">
 		<div class="col-md-12 center">
 	<?php
 		// Display container and contents:
 		skin_container( NT_("Footer"), array(
 				// The following params will be used as defaults for widgets included in this container:
+				'block_start'       => '<div class="evo_widget $wi_class$">',
+				'block_end'         => '</div>',
 			) );
 		// Note: Double quotes have been used around "Footer" only for test purposes.
 	?>
@@ -440,7 +418,7 @@ siteskin_include( '_site_body_header.inc.php' );
 	?>
 
 		</div>
-	</div>
+	</footer>
 	</div>
 </div>
 

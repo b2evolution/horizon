@@ -9,7 +9,6 @@
  * @subpackage bootstrap
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
-
 /**
  * Specific code for this skin.
  *
@@ -17,28 +16,39 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
  */
 class horizon_Skin extends Skin
 {
-  /**
+	/**
+	 * Do we want to use style.min.css instead of style.css ?
+	 */
+	var $use_min_css = 'true';  // true|false|'check' Set this to true for better optimization
+	// Note: we leave this on "check" so it's easier for beginners to kjust delete the .min.css file
+	/**
 	 * Get default name for the skin.
 	 * Note: the admin can customize it.
 	 */
 	function get_default_name()
 	{
-		return 'horizon';
+		return 'Horizon Blog';
 	}
-
-
-  /**
+	/**
 	 * Get default type for the skin.
 	 */
 	function get_default_type()
 	{
 		return 'normal';
 	}
-
-
 	/**
-   * Get definitions for editable params
-   *
+	 * What evoSkins API does has this skin been designed with?
+	 *
+	 * This determines where we get the fallback templates from (skins_fallback_v*)
+	 * (allows to use new markup in new b2evolution versions)
+	 */
+	function get_api_version()
+	{
+		return 6;
+	}
+	/**
+	 * Get definitions for editable params
+	 *
 	 * @see Plugin::GetDefaultSettings()
 	 * @param local params like 'for_editing' => true
 	 */
@@ -117,11 +127,8 @@ class horizon_Skin extends Skin
 					'type' => 'checkbox',
 				),
 			), parent::get_param_definitions( $params ) );
-
 		return $r;
 	}
-
-
 	/**
 	 * Get ready for displaying the skin.
 	 *
@@ -129,37 +136,46 @@ class horizon_Skin extends Skin
 	 */
 	function display_init()
 	{
-		global $Messages;
-
+		global $Messages, $debug;
 		require_js( '#jquery#', 'blog' );
-
 		// Initialize font-awesome icons and use them as a priority over the glyphicons, @see get_icon()
 		init_fontawesome_icons( 'fontawesome-glyphicons' );
-
 		require_js( '#bootstrap#', 'blog' );
 		require_css( '#bootstrap_css#', 'blog' );
 		//require_css( '#bootstrap_theme_css#', 'blog' );
-
-		// rsc/less/bootstrap-basic_styles.less
-		// rsc/less/bootstrap-basic.less
-		// rsc/less/bootstrap-blog_base.less
-		// rsc/less/bootstrap-item_base.less
-		// rsc/less/bootstrap-evoskins.less
-		// rsc/build/bootstrap-b2evo_base.bundle.css // CSS concatenation of the above
-		require_css( 'bootstrap-b2evo_base.bmin.css', 'blog' ); // Concatenation + Minifaction of the above
-
+		if( $debug )
+		{	// Use readable CSS:
+			// rsc/less/bootstrap-basic_styles.less
+			// rsc/less/bootstrap-basic.less
+			// rsc/less/bootstrap-blog_base.less
+			// rsc/less/bootstrap-item_base.less
+			// rsc/less/bootstrap-evoskins.less
+			require_css( 'bootstrap-b2evo_base.bundle.css', 'blog' );  // CSS concatenation of the above
+		}
+		else
+		{	// Use minified CSS:
+			require_css( 'bootstrap-b2evo_base.bmin.css', 'blog' ); // Concatenation + Minifaction of the above
+		}
+		
 		// Make sure standard CSS is called ahead of custom CSS generated below:
-		require_css( 'style.css', true );
-
+		if( $this->use_min_css == false 
+			|| $debug 
+			|| ( $this->use_min_css == 'check' && !file_exists(dirname(__FILE__).'/style.min.css' ) ) )
+		{	// Use readable CSS:
+			require_css( 'style.css', 'relative' );	// Relative to <base> tag (current skin folder)
+		}
+		else
+		{	// Use minified CSS:
+			require_css( 'style.min.css', 'relative' );	// Relative to <base> tag (current skin folder)
+		}
+	
 		// Colorbox (a lightweight Lightbox alternative) allows to zoom on images and do slideshows with groups of images:
 		if( $this->get_setting( 'colorbox' ) )
 		{
 			require_js_helper( 'colorbox', 'blog' );
 		}
-
 		// JS to init tooltip (E.g. on comment form for allowed file extensions)
 		add_js_headline( 'jQuery( function () { jQuery( \'[data-toggle="tooltip"]\' ).tooltip() } )' );
-
 		// Set bootstrap classes for messages
 		$Messages->set_params( array(
 				'class_success'  => 'alert alert-dismissible alert-success fade in',
@@ -169,8 +185,6 @@ class horizon_Skin extends Skin
 				'before_message' => '<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>',
 			) );
 	}
-
-
 	/**
 	 * Those templates are used for example by the messaging screens.
 	 */
@@ -190,9 +204,13 @@ class horizon_Skin extends Skin
 							.'</ul></div>',
 						'header_text_single' => '',
 					'header_end' => '',
-					'head_title' => '<div class="panel-heading">$title$<span class="pull-right">$global_icons$</span></div>'."\n",
-					'filters_start' => '<div class="filters panel-body form-inline">',
-					'filters_end' => '</div>',
+					'head_title' => '<div class="panel-heading fieldset_title"><span class="pull-right">$global_icons$</span><h3 class="panel-title">$title$</h3></div>'."\n",
+					'global_icons_class' => 'btn btn-default btn-sm',
+					'filters_start'        => '<div class="filters panel-body">',
+					'filters_end'          => '</div>',
+					'filter_button_class'  => 'btn-sm btn-info',
+					'filter_button_before' => '<div class="form-group pull-right">',
+					'filter_button_after'  => '</div>',
 					'messages_start' => '<div class="messages form-inline">',
 					'messages_end' => '</div>',
 					'messages_separator' => '<br />',
@@ -269,7 +287,6 @@ class horizon_Skin extends Skin
 					'sort_type' => 'basic'
 				);
 				break;
-
 			case 'blockspan_form':
 				// Form settings for filter area:
 				return array(
@@ -314,7 +331,6 @@ class horizon_Skin extends Skin
 					'radio_oneline_start'    => '',
 					'radio_oneline_end'      => "\n",
 				);
-
 			case 'compact_form':
 			case 'Form':
 				// Default Form settings:
@@ -360,7 +376,6 @@ class horizon_Skin extends Skin
 					'radio_oneline_start'    => '<label class="radio-inline">',
 					'radio_oneline_end'      => "</label>\n",
 				);
-
 			case 'linespan_form':
 				// Linespan form:
 				return array(
@@ -409,7 +424,50 @@ class horizon_Skin extends Skin
 					'radio_oneline_start'    => '<label class="radio-inline">',
 					'radio_oneline_end'      => "</label>\n",
 				);
-
+			case 'fixed_form':
+				// Form with fixed label width:
+				return array(
+					'layout'         => 'fieldset',
+					'formclass'      => 'form-horizontal',
+					'formstart'      => '',
+					'formend'        => '',
+					'title_fmt'      => '<span style="float:right">$global_icons$</span><h2>$title$</h2>'."\n",
+					'no_title_fmt'   => '<span style="float:right">$global_icons$</span>'."\n",
+					'fieldset_begin' => '<div class="fieldset_wrapper $class$" id="fieldset_wrapper_$id$"><fieldset $fieldset_attribs$><div class="panel panel-default">'."\n"
+															.'<legend class="panel-heading" $title_attribs$>$fieldset_title$</legend><div class="panel-body $class$">'."\n",
+					'fieldset_end'   => '</div></div></fieldset></div>'."\n",
+					'fieldstart'     => '<div class="form-group fixedform-group" $ID$>'."\n",
+					'fieldend'       => "</div>\n\n",
+					'labelclass'     => 'control-label fixedform-label',
+					'labelstart'     => '',
+					'labelend'       => "\n",
+					'labelempty'     => '<label class="control-label fixedform-label"></label>',
+					'inputstart'     => '<div class="controls fixedform-controls">',
+					'inputend'       => "</div>\n",
+					'infostart'      => '<div class="controls fixedform-controls"><div class="form-control-static">',
+					'infoend'        => "</div></div>\n",
+					'buttonsstart'   => '<div class="form-group"><div class="control-buttons fixedform-controls">',
+					'buttonsend'     => "</div></div>\n\n",
+					'customstart'    => '<div class="custom_content">',
+					'customend'      => "</div>\n",
+					'note_format'    => ' <span class="help-inline">%s</span>',
+					// Additional params depending on field type:
+					// - checkbox
+					'inputclass_checkbox'    => '',
+					'inputstart_checkbox'    => '<div class="controls fixedform-controls"><div class="checkbox"><label>',
+					'inputend_checkbox'      => "</label></div></div>\n",
+					'checkbox_newline_start' => '<div class="checkbox">',
+					'checkbox_newline_end'   => "</div>\n",
+					// - radio
+					'fieldstart_radio'       => '<div class="form-group radio-group" $ID$>'."\n",
+					'fieldend_radio'         => "</div>\n\n",
+					'inputclass_radio'       => '',
+					'radio_label_format'     => '$radio_option_label$',
+					'radio_newline_start'    => '<div class="radio"><label>',
+					'radio_newline_end'      => "</label></div>\n",
+					'radio_oneline_start'    => '<label class="radio-inline">',
+					'radio_oneline_end'      => "</label>\n",
+				);
 			case 'user_navigation':
 				// The Prev/Next links of users
 				return array(
@@ -424,7 +482,6 @@ class horizon_Skin extends Skin
 					'next_no_user' => '',
 					'block_end'    => '</ul>',
 				);
-
 			case 'button_classes':
 				// Button classes
 				return array(
@@ -434,12 +491,10 @@ class horizon_Skin extends Skin
 					'text'         => 'btn btn-default btn-xs',
 					'group'        => 'btn-group',
 				);
-
 			case 'tooltip_plugin':
 				// Plugin name for tooltips: 'bubbletip' or 'popover'
 				return 'popover';
 				break;
-
 			case 'plugin_template':
 				// Template for plugins
 				return array(
@@ -451,18 +506,14 @@ class horizon_Skin extends Skin
 						'toolbar_group_after'  => '</div>',
 						'toolbar_button_class' => 'btn btn-default',
 					);
-
 			case 'modal_window_js_func':
 				// JavaScript function to initialize Modal windows, @see echo_user_ajaxwindow_js()
 				return 'echo_modalwindow_js_bootstrap';
 				break;
-
 			default:
 				// Delegate to parent class:
 				return parent::get_template( $name );
 		}
 	}
-
 }
-
 ?>
