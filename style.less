@@ -232,6 +232,9 @@ textarea.message_text {
 			padding: 0;
 		}
 	}
+	.panel-body {
+		padding: 0px 15px !important;
+	}
 }
 .evo_form {
 	border: none;
@@ -752,28 +755,16 @@ a:hover {
 
 // Single post section
 .pager li {
-	display: inline-block;
-	width: 50%;
-	border-radius: 0px 0px 0px 0px;
-	&:first-child {
-		border-right: 1px solid #eee;
-	}
 	a {
-		width: 100%;
-		border: none;
-		border-radius: 0px 0px 0px 0px;
-		padding-bottom: 10px;
+		color: #333;
+		border: 1px solid #333 !important;
+		border-radius: 0px !important;
+		margin: 5px;
 		&:hover {
-			background-color: #eee;
-		}
-		:before {
-			background-color: @white;
-		}	
-		&:hover:before {
-			background-color: #eee;
-		}
-		&::before {
-			background-color: @white;
+			color: #697b94;
+			border: 1px solid #697b94 !important;
+			border-radius: 0px !important;
+			background-color: transparent;
 		}
 	}
 }
@@ -1038,19 +1029,23 @@ a:hover {
 		}
 		.bUser-anonymous-tag, .bUser-member-tag {
 			font-style: italic;
-			color: #697b94;
 		}
 	}
 	.panel-body {
 		border: 1px solid #eee;
 		border-radius: 0px 0px 5px 5px;
 		.evo_comment_avatar {
-			a img.bCommentAvatar {
+			a img.bCommentAvatar, img.bCommentAvatar {
 				margin-top: 8px !important;
 			}
 		}
 	}
 }
+			img.bCommentAvatar {
+				border-radius: 50% !important;
+				float: left;
+				margin: 8px 15px 5px 0px;
+			}
 
 // Sidebar
 aside.col-md-3 a {
@@ -1080,7 +1075,7 @@ aside.col-md-3 a {
 		padding-bottom: 10px;
 	}
 }
-.panel-title, .widget h3, .panel-heading .panel-title a {
+.panel-title, .evo_widget h3, .panel-heading .panel-title a {
 	font-size: 22px;
 	letter-spacing: 0.5px;
 	text-transform: uppercase;
@@ -1128,7 +1123,7 @@ aside.col-md-3 a {
 }
 .col-md-9 .widget, .featurepost {
 	padding-top: 25px;
-	padding-bottom: 25px;
+	padding-bottom: 15px;
 }
 .widget_core_coll_xml_feeds .notes a {
 	color: #697b94;
@@ -1271,8 +1266,11 @@ aside.col-md-3 a {
 	.widget_core_coll_title {
 		padding-top: 10%;
 	}
-		.floatright {
+	.floatright {
 		display: none;
+	}
+	.sitewide_header .floatright {
+		display: block !important;
 	}
 }	
 	
@@ -1333,4 +1331,109 @@ aside.col-md-3 a {
 			text-decoration: underline;
 		}
 	}
+}
+#feedbacks {
+	h3 {
+		margin: 0px;
+		padding: 10px 0px;
+	}
+	.evo_comment_title {
+		padding-top: 5px;
+	}
+}
+.no_of_comments {
+	font-style: normal !important;
+	font-size: 22px !important;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+.evo_form__comment {
+	padding: 20px 0px;
+}
+.evo_form__comment, .evo_post_comment_notification, .evo_post_feedback_feed_msg {
+	a {
+		color: #697b94;
+		&:hover {		
+			text-decoration: underline;
+		}
+	}
+}
+
+// Widgets
+// Organization Members widget
+.widget_core_org_members {
+	margin: 5em 0 30px;
+	color: #333;
+	img {
+		display: inline-block;
+	}
+	p.user_field {
+		margin-bottom: 40px;
+	}
+}
+// -----> Calendar Widget
+.widget_plugin_evo_Calr {
+	.bCalendarTable {
+	border-radius: 5px;
+	border-top: 3px solid #697b94;
+	border-bottom: 3px solid #697b94;
+		caption {
+			text-align: center;
+			a {
+				font-size: 16px;
+				color: #697b94 !important;
+			}
+		}
+		.bCalendarRow {		
+			.bCalendarLinkPost {
+				border: 1px solid #697b94;
+				border-radius: 50%;
+				color: #697b94 !important;
+				a:hover {
+				}
+			}
+		}
+		#bCalendarToday {
+			border-radius: 50%;
+			background: #697b94;
+			color: white;
+			border: none;
+		}
+		#prev a, #next a {
+			text-decoration: none;
+		}
+	}
+}
+// -----> Facebook like button
+.widget_plugin_evo_facebook {
+	width: 300px;
+	display: inline-block;
+	text-align: center;
+	iframe {
+		display: inline-block;
+	}
+}
+// Important widgets - Limited 300px width + 300px height
+ .widget_core_coll_tag_cloud,
+ .widget_core_coll_common_links,
+ .widget_core_content_hierarchy,
+ .widget_core_coll_link_list, 
+ .widget_plugin_evo_Calr,
+ .widget_plugin_evo_Arch,
+ .widget_plugin_evo_WhosOnline,
+ .widget_core_user_tools {
+	max-height: 600px;
+	display: inline-block;
+	vertical-align: top;
+}
+// ---> No height limit, 300px width
+.widget_core_colls_list_public,
+ .widget_core_colls_list_owner,
+ .widget_core_user_login, {
+	display: inline-block;
+	vertical-align: top;
+	margin: 15px !important;
+}
+.col-md-9 .evo_widget {
+	margin: 15px 0px !important;
 }
