@@ -269,13 +269,17 @@ textarea.message_text {
 .evo_post .small.text-muted a .glyphicon {
   color: inherit;
 }
-.evo_post h3 {
-  font-size: 18px;
-  font-style: italic;
-  color: #5d4a55;
+.evo_post .evo_post__full_text a {
+  color: #697b94;
 }
-.evo_post h3:before {
-  content: '- ';
+.evo_post .evo_post__full_text a:hover {
+  text-decoration: underline;
+}
+.evo_post h3 {
+  font-size: 17px;
+  font-style: italic;
+  color: #333;
+  padding: 10px;
 }
 .evo_post .evo_comment .panel-body {
   border: none;
@@ -447,6 +451,11 @@ div.log_container {
     padding: 0;
   }
 }
+html,
+body {
+  width: auto !important;
+  overflow-x: hidden !important;
+}
 .image-style {
   border-radius: 5px;
   -webkit-box-shadow: 3px 15px 5px -10px rgba(0, 0, 0, 0.25);
@@ -507,12 +516,12 @@ a:hover {
   border-radius: 5px 5px 0px 0px;
   padding-bottom: 0px;
   text-align: center;
-  display: table;
+  display: inline-block;
   margin: 0 auto;
 }
 .menu ul {
-  margin-left: auto !important;
-  margin-right: auto !important;
+  margin-left: auto;
+  margin-right: auto;
   float: none;
   display: inline;
 }
@@ -546,7 +555,9 @@ a:hover {
   -moz-osx-font-smoothing: grayscale;
   position: relative;
   overflow: hidden;
-  padding: 25px 12px 25px 12px;
+  border: none !important;
+  padding: 26px 12px 25px 13px;
+  margin: 0px 1px;
 }
 .menu li.active a.selected:before {
   content: "";
@@ -634,7 +645,7 @@ a:hover {
   margin-left: 0;
 }
 .pagination li a {
-  border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px !important;
   border: 1px solid #bbb;
   color: #bbb !important;
   margin-right: 5px;
@@ -643,7 +654,7 @@ a:hover {
 .pagination li a:hover {
   background-color: #ffffff;
   border: 1px solid #333333;
-  color: #333333;
+  color: #333333 !important;
 }
 .pagination li a:before {
   background: none;
@@ -891,6 +902,9 @@ a:hover {
 .widget_core_coll_comment_list ul li a:hover {
   background-color: transparent !important;
 }
+.widget_core_coll_post_list ul li a {
+  vertical-align: top !important;
+}
 .featurepost ul li {
   color: #333333;
 }
@@ -982,8 +996,10 @@ a:hover {
 }
 .evo_comment h4 {
   font-size: 16px;
+  font-style: italic;
 }
 .evo_comment h4 a {
+  color: #697b94 !important;
   font-size: 16px !important;
 }
 .evo_comment h4 a:hover {
@@ -993,6 +1009,8 @@ a:hover {
   float: left !important;
   text-align: left;
   font-style: italic;
+  padding-top: 5px;
+  clear: both;
 }
 .evo_comment h4.panel-title.pull-right .evo_comment_type,
 .evo_comment h4.panel-title.pull-right a {
@@ -1014,6 +1032,9 @@ a:hover {
 .evo_comment .panel-body {
   border: 1px solid #eee;
   border-radius: 0px 0px 5px 5px;
+}
+.evo_comment .panel-body .evo_comment_avatar a img.bCommentAvatar {
+  margin-top: 8px !important;
 }
 aside.col-md-3 a {
   font-size: 17px;
@@ -1320,4 +1341,13 @@ aside.col-md-3 a:hover {
 }
 .floatright {
   margin-top: -50px;
+}
+.sitewide_header .floatright {
+  margin-top: 0px;
+}
+.evo_post header .small.text-muted a {
+  color: #697b94;
+}
+.evo_post header .small.text-muted a:hover {
+  text-decoration: underline;
 }

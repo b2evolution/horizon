@@ -28,6 +28,8 @@ skin_init( $disp );
 
 // -------------------------- HTML HEADER INCLUDED HERE --------------------------
 skin_include( '_html_header.inc.php', array() );
+// Include Google Fonts code inside ""+
+echo "<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>";
 // -------------------------------- END OF HEADER --------------------------------
 
 
