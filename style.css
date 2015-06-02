@@ -749,7 +749,6 @@ a:hover {
 }
 .evo_post .panel-default .panel-body {
   border-top: 1px dashed #5d4a55;
-  padding-top: 40px;
 }
 .evo_post .panel-default .panel-body img {
   border-radius: 5px;
@@ -1357,13 +1356,10 @@ aside.col-md-3 a:hover {
 }
 #feedbacks h3 {
   margin: 0px;
-  padding: 10px 0px;
+  padding-top: 40px;
 }
 #feedbacks .evo_comment_title {
   padding-top: 5px;
-}
-#feedbacks h4 {
-  padding-top: 40px;
 }
 .no_of_comments {
   font-style: normal !important;
