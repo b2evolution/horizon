@@ -508,6 +508,10 @@ a:hover {
   z-index: 9999;
   margin-top: -100px;
   float: none;
+  display: inline-block;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   .drop {
@@ -544,6 +548,9 @@ a:hover {
 }
 .menu li a {
   padding: 26px 12px 25px 12px;
+}
+.menu li.active {
+  margin: 0px 1px 0px 1px;
 }
 .menu li.active a.selected {
   cursor: pointer !important;
@@ -1355,11 +1362,15 @@ aside.col-md-3 a:hover {
 #feedbacks .evo_comment_title {
   padding-top: 5px;
 }
+#feedbacks h4 {
+  padding-top: 40px;
+}
 .no_of_comments {
   font-style: normal !important;
   font-size: 22px !important;
   text-transform: uppercase;
   letter-spacing: 1px;
+  padding-top: 5px;
 }
 .evo_form__comment {
   padding: 20px 0px;
