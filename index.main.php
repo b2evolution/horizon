@@ -75,13 +75,12 @@ siteskin_include( '_site_body_header.inc.php' );
 </div>
 
 <div class="container">
-
 <!-- BLOG NAVIGATION MENU -->
 		<nav class="col-md-12">
 			<div class="drop">
-			<input type="checkbox" id="toggle" />
-			<label for="toggle" class="toggle" onclick></label>
-			<ul class="menu">
+				<input type="checkbox" id="toggle" />
+				<label for="toggle" class="toggle" onclick></label>
+				<ul class="menu">
 	<?php
 		// ------------------------- "Menu" CONTAINER EMBEDDED HERE --------------------------
 		// Display container and contents:
@@ -102,8 +101,8 @@ siteskin_include( '_site_body_header.inc.php' );
 			) );
 		// ----------------------------- END OF "Menu" CONTAINER -----------------------------
 	?>
-			</ul>
-		</div>
+				</ul>
+			</div>
 		</nav>
 </div>
 

@@ -51,7 +51,7 @@ echo '<div id="styled_content_block">'; // Beginning of post display  TODO: get 
 		{
 			echo $params['item_title_line_before'];
 
-			if( $disp == 'single' || $disp == 'page' )
+			if( $disp == 'single' && $disp == 'page' && $disp == 'posts' )
 			{
 				$title_before = $params['item_title_single_before'];
 				$title_after = $params['item_title_single_after'];
