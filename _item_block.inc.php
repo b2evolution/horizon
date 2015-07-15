@@ -162,7 +162,7 @@ echo '<div id="styled_content_block">'; // Beginning of post display  TODO: get 
 							'type' => 'comments',
 							'link_before' => '',
 							'link_after' => '',
-							'link_text_zero' => T_('<i class="fa fa-comments"></i>'),
+							'link_text_zero' => T_('<span>Leave a comment <i class="fa fa-angle-double-right"></i></span>'),
 							'link_text_one' => T_('1 <i class="fa fa-comments"></i>'),
 							'link_text_more' => T_('%d <i class="fa fa-comments"></i>'),
 							'link_title' => '#',

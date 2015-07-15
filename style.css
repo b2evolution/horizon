@@ -740,6 +740,9 @@ a:hover {
 .post_comments_link a:hover {
   color: inherit;
 }
+.post_comments_link span {
+  font-size: 15px;
+}
 .evo_image_block {
   background: none;
   margin: 5px 0px 15px 0px;
