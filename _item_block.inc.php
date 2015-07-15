@@ -149,22 +149,22 @@ echo '<div id="styled_content_block">'; // Beginning of post display  TODO: get 
 		<?php
 		// List all tags attached to this post:
 		$Item->tags( array(
-				'before'    => '<nav class="small">'.T_('Tags').': ',
+				'before'    => '<nav class="small post_tags"><p>Tags: </p>',
 				'after'     => '</nav>',
-				'separator' => ', ',
+				'separator' => '',
 			) );
 		?>
 
-		<nav class="small">
+		<nav class="small post_comments_link">
 		<?php
 			// Link to comments, trackbacks, etc.:
 			$Item->feedback_link( array(
 							'type' => 'comments',
 							'link_before' => '',
 							'link_after' => '',
-							'link_text_zero' => '#',
-							'link_text_one' => '#',
-							'link_text_more' => '#',
+							'link_text_zero' => T_('<i class="fa fa-comments"></i>'),
+							'link_text_one' => T_('1 <i class="fa fa-comments"></i>'),
+							'link_text_more' => T_('%d <i class="fa fa-comments"></i>'),
 							'link_title' => '#',
 						) );
 

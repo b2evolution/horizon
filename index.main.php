@@ -42,21 +42,21 @@ siteskin_include( '_site_body_header.inc.php' );
 <div class="evo_container evo_container__header">
 	<header class="row">
 		<div class="evo_container evo_container__page_top col-lg-12">
-	<?php
-		// ------------------------- "Page Top" CONTAINER EMBEDDED HERE --------------------------
-		// Display container and contents:
-		skin_container( NT_('Page Top'), array(
-				// The following params will be used as defaults for widgets included in this container:
-				'block_start'         => '<div class="evo_widget $wi_class$">',
-				'block_end'           => '</div>',
-				'block_display_title' => false,
-				'list_start'          => '<ul>',
-				'list_end'            => '</ul>',
-				'item_start'          => '<li>',
-				'item_end'            => '</li>',
-			) );
-		// ----------------------------- END OF "Page Top" CONTAINER -----------------------------
-	?>
+		<?php
+			// ------------------------- "Page Top" CONTAINER EMBEDDED HERE --------------------------
+			// Display container and contents:
+			skin_container( NT_('Page Top'), array(
+					// The following params will be used as defaults for widgets included in this container:
+					'block_start'         => '<div class="evo_widget $wi_class$">',
+					'block_end'           => '</div>',
+					'block_display_title' => false,
+					'list_start'          => '<ul>',
+					'list_end'            => '</ul>',
+					'item_start'          => '<li>',
+					'item_end'            => '</li>',
+				) );
+			// ----------------------------- END OF "Page Top" CONTAINER -----------------------------
+		?>
 		</div>
 	
 	<?php
@@ -81,26 +81,26 @@ siteskin_include( '_site_body_header.inc.php' );
 				<input type="checkbox" id="toggle" />
 				<label for="toggle" class="toggle" onclick></label>
 				<ul class="menu">
-	<?php
-		// ------------------------- "Menu" CONTAINER EMBEDDED HERE --------------------------
-		// Display container and contents:
-		// Note: this container is designed to be a single <ul> list
-		skin_container( NT_('Menu'), array(
-				// The following params will be used as defaults for widgets included in this container:
-				'block_start'         => '',
-				'block_end'           => '',
-				'block_display_title' => false,
-				'list_start'          => '',
-				'list_end'            => '',
-				'item_start'          => '<li class="evo_widget $wi_class$">',
-				'item_end'            => '</li>',
-				'item_selected_start' => '<li class="active evo_widget $wi_class$">',
-				'item_selected_end'   => '</li>',
-				'item_title_before'   => '',
-				'item_title_after'    => '',
-			) );
-		// ----------------------------- END OF "Menu" CONTAINER -----------------------------
-	?>
+		<?php
+			// ------------------------- "Menu" CONTAINER EMBEDDED HERE --------------------------
+			// Display container and contents:
+			// Note: this container is designed to be a single <ul> list
+			skin_container( NT_('Menu'), array(
+					// The following params will be used as defaults for widgets included in this container:
+					'block_start'         => '',
+					'block_end'           => '',
+					'block_display_title' => false,
+					'list_start'          => '',
+					'list_end'            => '',
+					'item_start'          => '<li class="evo_widget $wi_class$">',
+					'item_end'            => '</li>',
+					'item_selected_start' => '<li class="active evo_widget $wi_class$">',
+					'item_selected_end'   => '</li>',
+					'item_title_before'   => '',
+					'item_title_after'    => '',
+				) );
+			// ----------------------------- END OF "Menu" CONTAINER -----------------------------
+		?>
 				</ul>
 			</div>
 		</nav>
@@ -161,16 +161,15 @@ siteskin_include( '_site_body_header.inc.php' );
 
 		<?php
 		// Go Grab the featured post:
-		if( $Item = & get_featured_Item() )
+		if( ! in_array( $disp, array( 'single', 'page' ) ) && $Item = & get_featured_Item() )
 		{ // We have a featured/intro post to display:
 			// ---------------------- ITEM BLOCK INCLUDED HERE ------------------------
-			echo '<div class="panel panel-default"><div class="panel-body">';
 			skin_include( '_item_block.inc.php', array(
 					'feature_block' => true,
-					'content_mode' => 'auto',		// 'auto' will auto select depending on $disp-detail
+					'content_mode' => 'full', // We want regular "full" content, even in category browsing: i-e no excerpt or thumbnail
 					'intro_mode'   => 'normal',	// Intro posts will be displayed in normal mode
+					'item_class'   => ($Item->is_intro() ? 'well evo_intro_post' : 'well evo_featured_post'),
 				) );
-			echo '</div></div>';
 			// ----------------------------END ITEM BLOCK  ----------------------------
 		}
 		?>
@@ -185,10 +184,11 @@ siteskin_include( '_site_body_header.inc.php' );
 					'page_current_template' => '<span><b>$page_num$</b></span>',
 					'page_item_before' => '<li>',
 					'page_item_after' => '</li>',
+					'prev_text' => '<i class="fa fa-angle-double-left"></i>',
+					'next_text' => '<i class="fa fa-angle-double-right"></i>',
 				) );
 			// ------------------------- END OF PREV/NEXT PAGE LINKS -------------------------
 		?>
-
 
 		<?php
 			// --------------------------------- START OF POSTS -------------------------------------
@@ -212,8 +212,8 @@ siteskin_include( '_site_body_header.inc.php' );
 					'page_current_template' => '<span><b>$page_num$</b></span>',
 					'page_item_before' => '<li>',
 					'page_item_after' => '</li>',
-					'prev_text' => '&lt;&lt;',
-					'next_text' => '&gt;&gt;',
+					'prev_text' => '<i class="fa fa-angle-double-left"></i>',
+					'next_text' => '<i class="fa fa-angle-double-right"></i>',
 				) );
 			// ------------------------- END OF PREV/NEXT PAGE LINKS -------------------------
 		}
@@ -244,8 +244,8 @@ siteskin_include( '_site_body_header.inc.php' );
 						'page_current_template' => '<span><b>$page_num$</b></span>',
 						'page_item_before'      => '<li>',
 						'page_item_after'       => '</li>',
-						'prev_text'             => '&lt;&lt;',
-						'next_text'             => '&gt;&gt;',
+						'prev_text' => '<i class="fa fa-angle-double-left"></i>',
+						'next_text' => '<i class="fa fa-angle-double-right"></i>',
 					),
 					// Form params for the forms below: login, register, lostpassword, activateinfo and msgform
 					'skin_form_before'      => '<div class="panel panel-default skin-form">'
@@ -284,6 +284,9 @@ siteskin_include( '_site_body_header.inc.php' );
 					'search_input_after'   => '',
 					'search_submit_before' => '<span class="input-group-btn">',
 					'search_submit_after'  => '</span></div>',
+					// Front page
+					'featured_intro_before' => '<div class="jumbotron">',
+					'featured_intro_after'  => '</div>',
 					// Form "Sending a message"
 					'msgform_form_title' => T_('Sending a message'),
 				) );

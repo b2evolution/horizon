@@ -451,6 +451,19 @@ div.log_container {
   padding: 20px 0 10px 30px;
   vertical-align: middle;
 }
+.well,
+.jumbotron {
+  margin: 0px 0px 30px 0px;
+  border-radius: 0px;
+}
+.jumbotron {
+  padding-left: 25px !important;
+  padding-right: 25px !important;
+  border-radius: 0px !important;
+}
+.jumbotron .featurepost {
+  padding: 0px;
+}
 @-webkit-keyframes bugfix {
   from {
     padding: 0;
@@ -507,7 +520,9 @@ a:hover {
   max-width: 950px;
 }
 .col-md-9 {
-  padding-right: 90px;
+  padding-right: 35px;
+  padding-left: 35px;
+  padding-top: 40px;
 }
 .drop {
   z-index: 9999;
@@ -682,23 +697,48 @@ a:hover {
   background-color: white;
 }
 .small {
-  margin-top: 20px;
+  margin-top: 5px;
   font-family: Helvetica, sans-serif;
 }
-.small a {
-  color: #697b94;
-  font-size: 17px;
-  border-top: 1px solid #697b94;
-  padding: 10px;
+.small.post_tags {
+  margin-top: 2px;
+  display: inline-block;
 }
-.small a:hover {
-  color: #333333;
-  border-top: 1px solid #333333;
+.small.post_tags p {
+  display: inline-block;
+  margin: 0px 5px 3px 0px;
+}
+.small.post_tags a {
+  background-color: #fff;
+  border: 1px solid #697b94;
+  font-size: 12px;
+  padding: 0px 5px !important;
+  margin: 2px 5px 2px 0px;
+  border-radius: 0px;
+  font-weight: bold;
+  color: #697b94;
+}
+.small.post_tags a:hover,
+.small.post_tags a:hover:before {
+  background-color: #697b94;
+  color: #fff;
+}
+.small.post_tags a:before {
+  color: #697b94;
 }
 .small.text-muted a {
   font-size: 16px;
   border-top: 0px solid #9c7569;
   padding: 0px;
+}
+.post_comments_link {
+  margin: 0px !important;
+}
+.post_comments_link a {
+  font-size: 18px;
+}
+.post_comments_link a:hover {
+  color: inherit;
 }
 .evo_image_block {
   background: none;
@@ -720,9 +760,6 @@ a:hover {
 .img-responsive:hover,
 .loadimg:hover {
   opacity: 0.8;
-}
-.evo_post_images .evo_image_block img {
-  width: 100%;
 }
 .widget_grid {
   width: 200px !important;
@@ -911,9 +948,6 @@ a:hover {
 .evo_post ul li a,
 .evo_post a {
   vertical-align: bottom  !important;
-}
-.evo_post__full_text .evo_post_more_link {
-  padding: 10px 0px 0px 0px;
 }
 .evo_post__full_text .evo_post_more_link a {
   color: #697b94;
@@ -1130,6 +1164,25 @@ aside.col-md-3 a:hover {
   text-decoration: underline;
   color: #697b94;
 }
+.ufld_icon_links {
+  text-align: center;
+}
+.ufld_icon_links a:hover,
+.ufld_icon_links span:hover {
+  text-decoration: none !important;
+  color: white;
+}
+.widget_core_profile_menu_link div ul li a img {
+  vertical-align: middle;
+  margin-right: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 3px 15px 5px -10px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 3px 15px 5px -10px rgba(0, 0, 0, 0.25);
+  box-shadow: 3px 15px 5px -10px rgba(0, 0, 0, 0.25);
+}
+.widget_flow_blocks div {
+  margin: 10px;
+}
 .footer-wrapper {
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0);
@@ -1291,6 +1344,13 @@ aside.col-md-3 a:hover {
   .menu li a.selected {
     color: #ffffff !important;
   }
+  .col-md-9 {
+    padding-top: 30px;
+  }
+  .jumbotron,
+  .well {
+    margin: 0px;
+  }
 }
 @media only screen and (max-width: 768px) {
   .widget_core_coll_title {
@@ -1301,6 +1361,10 @@ aside.col-md-3 a:hover {
   }
   .sitewide_header .floatright {
     display: block !important;
+  }
+  .jumbotron {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
   }
 }
 @media only screen and (max-width: 576px) {
@@ -1317,6 +1381,9 @@ aside.col-md-3 a:hover {
   }
   .widget_core_coll_title {
     padding-top: 15%;
+  }
+  .col-md-9 {
+    padding-top: 15px;
   }
 }
 @media only screen and (max-width: 567px) {
@@ -1399,6 +1466,7 @@ aside.col-md-3 a:hover {
   border-radius: 5px;
   border-top: 3px solid #697b94;
   border-bottom: 3px solid #697b94;
+  min-width: 200px;
 }
 .widget_plugin_evo_Calr .bCalendarTable caption {
   text-align: center;
@@ -1409,13 +1477,12 @@ aside.col-md-3 a:hover {
 }
 .widget_plugin_evo_Calr .bCalendarTable .bCalendarRow .bCalendarLinkPost {
   border: 1px solid #697b94;
-  border-radius: 50%;
   color: #697b94 !important;
 }
 .widget_plugin_evo_Calr .bCalendarTable #bCalendarToday {
-  border-radius: 50%;
+  border-radius: 0px;
   background: #697b94;
-  color: white;
+  color: white !important;
   border: none;
 }
 .widget_plugin_evo_Calr .bCalendarTable #prev a,
@@ -1437,8 +1504,6 @@ aside.col-md-3 a:hover {
 .widget_plugin_evo_Arch,
 .widget_plugin_evo_WhosOnline,
 .widget_core_user_tools {
-  max-height: 600px;
-  display: inline-block;
   vertical-align: top;
 }
 .widget_core_colls_list_public,

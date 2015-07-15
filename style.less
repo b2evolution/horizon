@@ -44,7 +44,6 @@ header.row {
 		text-align: center;
 	}
 }
-
 // Login widget form
 .widget_core_user_login {
 	#login_form {
@@ -510,6 +509,19 @@ div.action_messages, div.log_container {
 		vertical-align: middle;
 	}
 }
+// Intro/Featured post style
+.well, .jumbotron {
+	margin: 0px 0px 30px 0px;
+	border-radius: 0px;
+}
+.jumbotron {
+	padding-left: 25px !important;
+	padding-right: 25px !important;
+	border-radius: 0px !important;
+	.featurepost {
+		padding: 0px;
+	}
+}
 
 // Base styles
 @color-base: #333;
@@ -565,7 +577,9 @@ a:hover {
 	max-width: 950px;
 }
 .col-md-9 {
-	padding-right: 90px;
+	padding-right: 35px;
+	padding-left: 35px;
+	padding-top: 40px;
 }
 
 // Navigation styles
@@ -725,23 +739,48 @@ a:hover {
 	background-color: white;
 }
 .small {
-	margin-top: 20px;
+	margin-top: 5px;
 	font-family: Helvetica, sans-serif;
-}
-.small a {
-	color: #697b94;
-	font-size: 17px;
-	border-top: 1px solid #697b94;
-	padding: 10px;
-	&:hover {
-		color: @color-base;
-		border-top: 1px solid @color-base;
+	&.post_tags {
+		margin-top: 2px;
+		display: inline-block;
+		p {
+			display: inline-block;
+			margin: 0px 5px 3px 0px;
+		}
+		a {
+			background-color: #fff;
+			border: 1px solid #697b94;
+			font-size: 12px;
+			padding: 0px 5px !important;
+			margin: 2px 5px 2px 0px;
+			border-radius: 0px;
+			font-weight: bold;
+			color: #697b94;
+			&:hover, &:hover:before {
+				background-color: #697b94;
+				color: #fff;
+			}
+			&:before {
+				color: #697b94;
+			}
+		}
+	}
+	&.text-muted a {
+		font-size: 16px;
+		border-top: 0px solid #9c7569;
+		padding: 0px;
 	}
 }
-.small.text-muted a {
-	font-size: 16px;
-	border-top: 0px solid #9c7569;
-	padding: 0px;
+// Comments link style
+.post_comments_link {
+	margin: 0px !important;
+	a {
+		font-size: 18px;
+		&:hover { 
+			color: inherit;
+		}
+	}
 }
 .evo_image_block {
 	background: none;
@@ -754,13 +793,6 @@ a:hover {
 	padding: 0px !important;
 	&:hover {
 		opacity: 0.8;
-	}
-}
-.evo_post_images {
-	.evo_image_block {
-		img {
-			width: 100%;
-		}
 	}
 }
 .widget_grid {
@@ -942,7 +974,6 @@ a:hover {
 
 // Full story button - More button Effect
 .evo_post__full_text .evo_post_more_link {
-	padding: 10px 0px 0px 0px;
 	a {
 		color: #697b94;
 		font-weight: 0;
@@ -1148,6 +1179,25 @@ aside.col-md-3 a {
 		color: #697b94;
 	}
 }
+// User links on sidebar
+.ufld_icon_links {
+	text-align: center;
+	a:hover, span:hover {
+		text-decoration: none !important;
+		color: white;
+	}
+}
+.widget_core_profile_menu_link div ul li a img {
+	vertical-align: middle;
+	margin-right: 5px;
+	.image-style;
+}
+// User pictures widget layout
+.widget_flow_blocks {
+	div {
+		margin: 10px;
+	}
+}
 
 // Footer
 .footer-wrapper {
@@ -1275,6 +1325,12 @@ aside.col-md-3 a {
 	.menu li a.selected {
 		color: @white !important;
 	}
+	.col-md-9 {
+		padding-top: 30px;
+	}
+	.jumbotron, .well {
+		margin: 0px;
+	}
 }
 
 
@@ -1287,6 +1343,10 @@ aside.col-md-3 a {
 	}
 	.sitewide_header .floatright {
 		display: block !important;
+	}
+.jumbotron {
+	padding-left: 8px !important;
+	padding-right: 8px !important;
 	}
 }	
 	
@@ -1303,6 +1363,9 @@ aside.col-md-3 a {
 	}
 	.widget_core_coll_title {
 		padding-top: 15%;
+	}
+	.col-md-9 {
+		padding-top: 15px;
 	}
 }
 @media only screen and (max-width: 567px) {
@@ -1393,6 +1456,7 @@ aside.col-md-3 a {
 	border-radius: 5px;
 	border-top: 3px solid #697b94;
 	border-bottom: 3px solid #697b94;
+	min-width: 200px;
 		caption {
 			text-align: center;
 			a {
@@ -1403,16 +1467,15 @@ aside.col-md-3 a {
 		.bCalendarRow {		
 			.bCalendarLinkPost {
 				border: 1px solid #697b94;
-				border-radius: 50%;
 				color: #697b94 !important;
 				a:hover {
 				}
 			}
 		}
 		#bCalendarToday {
-			border-radius: 50%;
+			border-radius: 0px;
 			background: #697b94;
-			color: white;
+			color: white !important;
 			border: none;
 		}
 		#prev a, #next a {
@@ -1437,8 +1500,6 @@ aside.col-md-3 a {
  .widget_plugin_evo_Arch,
  .widget_plugin_evo_WhosOnline,
  .widget_core_user_tools {
-	max-height: 600px;
-	display: inline-block;
 	vertical-align: top;
 }
 // ---> No height limit, 300px width
