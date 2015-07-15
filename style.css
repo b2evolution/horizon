@@ -939,6 +939,9 @@ a:hover {
 .widget_core_coll_comment_list ul li a:hover {
   background-color: transparent !important;
 }
+.widget_core_coll_comment_list ul li span.user.nowrap {
+  font-weight: normal;
+}
 .widget_core_coll_post_list ul li a {
   vertical-align: top !important;
 }
@@ -1033,7 +1036,6 @@ a:hover {
   font-style: italic;
 }
 .evo_comment h4 a {
-  color: #697b94 !important;
   font-size: 16px !important;
 }
 .evo_comment h4 a:hover {
@@ -1047,11 +1049,11 @@ a:hover {
   clear: both;
 }
 .evo_comment h4.panel-title.pull-right .evo_comment_type,
-.evo_comment h4.panel-title.pull-right a {
+.evo_comment h4.panel-title.pull-right .nogender {
   color: #697b94;
 }
 .evo_comment h4.panel-title.pull-right .evo_comment_type:hover,
-.evo_comment h4.panel-title.pull-right a:hover {
+.evo_comment h4.panel-title.pull-right .nogender:hover {
   background-color: rgba(0, 0, 0, 0) !important;
   text-decoration: underline;
 }
@@ -1062,6 +1064,9 @@ a:hover {
 .evo_comment h4.panel-title.pull-right .bUser-member-tag {
   font-style: italic;
 }
+.evo_comment h4.panel-title.pull-right a:hover {
+  background-color: transparent;
+}
 .evo_comment .panel-body {
   border: 1px solid #eee;
   border-radius: 0px 0px 5px 5px;
@@ -1070,17 +1075,24 @@ a:hover {
 .evo_comment .panel-body .evo_comment_avatar img.bCommentAvatar {
   margin-top: 8px !important;
 }
+.evo_comment .evo_comment_title .nogender {
+  color: #697b94;
+}
+.evo_comment .evo_comment_title .nogender:hover {
+  background-color: rgba(0, 0, 0, 0) !important;
+  text-decoration: underline;
+}
 img.bCommentAvatar {
   border-radius: 50% !important;
   float: left;
   margin: 8px 15px 5px 0px;
 }
-aside.col-md-3 a {
+aside.col-md-3 a:not(.ufld_icon_links) {
   font-size: 17px;
   font-weight: 400;
   color: #697b94;
 }
-aside.col-md-3 a:hover {
+aside.col-md-3 a:not(.ufld_icon_links):hover {
   color: #333333;
   text-decoration: underline;
 }
@@ -1103,8 +1115,7 @@ aside.col-md-3 a:hover {
   padding-bottom: 10px;
 }
 .panel-title,
-.evo_widget h3,
-.panel-heading .panel-title a {
+.evo_widget h3 {
   font-size: 22px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
