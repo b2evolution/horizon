@@ -119,7 +119,6 @@ siteskin_include( '_site_body_header.inc.php' );
 
 <div class="container">
 <!-- =================================== START OF MAIN AREA =================================== -->
-	<div class="row">
         <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
 
 	<?php
@@ -335,8 +334,7 @@ siteskin_include( '_site_body_header.inc.php' );
 		// copying the matching php file into your skin directory.
 		// ------------------------- END OF MAIN CONTENT TEMPLATE ---------------------------
 	?>
-
-		</div>
+	
 	<?php
 	if( $Skin->get_setting( 'layout' ) != 'single_column' )
 	{

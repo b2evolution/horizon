@@ -512,15 +512,15 @@ div.action_messages, div.log_container {
 // Intro/Featured post style
 .well, .jumbotron {
 	margin: 0px 0px 30px 0px;
-	border-radius: 0px;
 }
 .jumbotron {
-	padding-left: 25px !important;
-	padding-right: 25px !important;
-	border-radius: 0px !important;
+	padding: 12px 25px 25px 25px !important;
 	.featurepost {
 		padding: 0px;
 	}
+}
+main .well {
+	padding-top: 8px;
 }
 
 // Base styles
@@ -794,6 +794,8 @@ a:hover {
 	.image-style;
 	.transition;
 	padding: 0px !important;
+	height: 100%;
+	width: 100%;
 	&:hover {
 		opacity: 0.8;
 	}
@@ -1126,6 +1128,10 @@ aside.col-md-3 a:not(.ufld_icon_links) {
 		padding-left: 0px;
 		padding-right: 0px;
 		border-bottom: none;
+	}
+	h4 a {
+	    font-size: 22px;
+		letter-spacing: 0.5px;
 	}
 }
 .panel-heading {
@@ -1481,16 +1487,14 @@ aside.col-md-3 a:not(.ufld_icon_links) {
 		}
 		.bCalendarRow {		
 			.bCalendarLinkPost {
-				border: 1px solid #697b94;
 				color: #697b94 !important;
-				a:hover {
-				}
 			}
 		}
 		#bCalendarToday {
-			border-radius: 0px;
-			background: #697b94;
-			color: white !important;
+			border-radius: 3px;
+			border: 1px solid #697b94 !important;
+			color: #697b94 !important;
+			background-color: transparent;
 			border: none;
 		}
 		#prev a, #next a {

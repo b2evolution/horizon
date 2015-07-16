@@ -454,15 +454,15 @@ div.log_container {
 .well,
 .jumbotron {
   margin: 0px 0px 30px 0px;
-  border-radius: 0px;
 }
 .jumbotron {
-  padding-left: 25px !important;
-  padding-right: 25px !important;
-  border-radius: 0px !important;
+  padding: 12px 25px 25px 25px !important;
 }
 .jumbotron .featurepost {
   padding: 0px;
+}
+main .well {
+  padding-top: 8px;
 }
 @-webkit-keyframes bugfix {
   from {
@@ -759,6 +759,8 @@ a:hover {
   transition: all 0.25s ease-out;
   /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
   padding: 0px !important;
+  height: 100%;
+  width: 100%;
 }
 .img-responsive:hover,
 .loadimg:hover {
@@ -1107,6 +1109,10 @@ aside.col-md-3 a:not(.ufld_icon_links):hover {
   padding-left: 0px;
   padding-right: 0px;
   border-bottom: none;
+}
+.panel.panel-default.evo_widget h4 a {
+  font-size: 22px;
+  letter-spacing: 0.5px;
 }
 .panel-heading {
   text-align: left;
@@ -1490,13 +1496,13 @@ aside.col-md-3 a:not(.ufld_icon_links):hover {
   color: #697b94 !important;
 }
 .widget_plugin_evo_Calr .bCalendarTable .bCalendarRow .bCalendarLinkPost {
-  border: 1px solid #697b94;
   color: #697b94 !important;
 }
 .widget_plugin_evo_Calr .bCalendarTable #bCalendarToday {
-  border-radius: 0px;
-  background: #697b94;
-  color: white !important;
+  border-radius: 3px;
+  border: 1px solid #697b94 !important;
+  color: #697b94 !important;
+  background-color: transparent;
   border: none;
 }
 .widget_plugin_evo_Calr .bCalendarTable #prev a,
