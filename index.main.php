@@ -388,7 +388,8 @@ siteskin_include( '_site_body_header.inc.php' );
 <div class="footer-wrapper">
 	<div class="container">
 	<footer class="row">
-		<div class="col-md-12 center">
+		<div class="col-md-12">
+		<section class="evo_container evo_container__footer">
 	<?php
 		// Display container and contents:
 		skin_container( NT_("Footer"), array(
@@ -398,15 +399,14 @@ siteskin_include( '_site_body_header.inc.php' );
 			) );
 		// Note: Double quotes have been used around "Footer" only for test purposes.
 	?>
-	<p>
+	</section>
+	<p class="footer_text__credits">
 		<?php
 			// Display footer text (text can be edited in Blog Settings):
 			$Blog->footer_text( array(
 					'before'      => '',
 					'after'       => ' &bull; ',
 				) );
-
-		// TODO: dh> provide a default class for pTyp, too. Should be a name and not the ityp_ID though..?!
 		?>
 
 		<?php

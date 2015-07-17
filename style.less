@@ -154,6 +154,8 @@ ul.profile_tabs {
 input.search_field {
 	margin-bottom: 0;
 	display: inline-block;
+	padding-right: 40px;
+	
 }
 form.search .search_options {
 	width: 100%;
@@ -794,8 +796,6 @@ a:hover {
 	.image-style;
 	.transition;
 	padding: 0px !important;
-	height: 100%;
-	width: 100%;
 	&:hover {
 		opacity: 0.8;
 	}
@@ -1352,6 +1352,12 @@ aside.col-md-3 a:not(.ufld_icon_links) {
 	.jumbotron, .well {
 		margin: 0px;
 	}
+	.evo_container__footer .evo_widget {
+		width: 100% !important;
+	}
+	.evo_image_index div { 
+		margin: 5px !important;
+	}
 }
 
 
@@ -1460,6 +1466,97 @@ aside.col-md-3 a:not(.ufld_icon_links) {
 	}
 }
 
+// OTHER DISPS STYLES
+main {
+	& > p > a, & > ul > li > a {
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	.evo_widget {
+		.evo_image_index div {
+			background-color: transparent;
+			border: none;
+			margin: 15px;
+			span a {
+				.loadimg {
+					height: auto;
+				}
+			}
+		}
+	}
+	
+	// Search disp
+	& > .widget_core_coll_search_form form .extended_search_form {
+		margin-bottom: 20px;
+		.input-group {
+			width: 100%;
+			.search_field {
+				width: 100% !important;
+			}
+		}
+	}
+	.search_result {
+		padding: 15px;
+		margin-bottom: 20px;
+		.search_title a {
+			text-transform: uppercase;
+			text-decoration: none;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		.result_content {
+			padding: 15px;
+			border-radius: 0px 0px 4px 4px;
+			border: 1px solid #ddd;
+		}
+		.search_info {
+			font-size: 14px;
+			a {
+				img {
+					vertical-align: baseline;
+					border-radius: 50%;
+				}
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+	
+	// Sitemap disp
+	& > h3 {
+		color: #5d4a55;
+	}
+	
+	// Error disp
+	& > .error_404 a:hover, & > .error_additional_content a:hover {
+		text-decoration: underline;
+	}
+	
+	// Users disp
+	& > .results.panel {
+		.panel-heading {
+			padding: 15px;
+			.panel-title {
+				padding: 0px;
+			}
+		}
+		.panel-body {
+			form .control-label {
+				font-weight: normal;
+			}
+			input, select {
+				font-size: 17px;
+			}
+		}
+		table a:hover {
+			text-decoration: underline !important;
+		}
+	}
+}
+
 // Widgets
 // Organization Members widget
 .widget_core_org_members {
@@ -1530,4 +1627,33 @@ aside.col-md-3 a:not(.ufld_icon_links) {
 }
 .col-md-9 .evo_widget {
 	margin: 15px 0px !important;
+}
+.footer_text__credits {
+	text-align: center;
+}
+.evo_container__footer {
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 10px;
+	text-align: center;
+	.evo_widget {
+		text-align: left;
+		display: inline-block;
+		margin: 18px;
+		width: 270px;
+		max-height: 650px;
+		vertical-align: top;
+		font-size: 15px;
+		.widget_flow_blocks {
+			div {
+				margin: 10px;
+				a img {
+					border-radius: 50%;
+					.transition;
+					&:hover {
+						opacity: 0.8;
+					}
+				}
+			}
+		}
+	}
 }
