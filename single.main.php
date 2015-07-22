@@ -28,6 +28,8 @@ skin_init( $disp );
 
 // -------------------------- HTML HEADER INCLUDED HERE --------------------------
 skin_include( '_html_header.inc.php', array() );
+// Include Google Fonts code inside ""+
+echo "<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>";
 // -------------------------------- END OF HEADER --------------------------------
 
 
@@ -36,40 +38,27 @@ skin_include( '_html_header.inc.php', array() );
 siteskin_include( '_site_body_header.inc.php' );
 // ------------------------------- END OF SITE HEADER --------------------------------
 ?>
-
-	<!-- Google font: Sans Open -->
-	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>	
-	
-	<?php 
-	// Use font-awesome icons, @see get_icon()
-	global $b2evo_icons_type;
-	$b2evo_icons_type = 'fontawesome'; // alternatively : 'glyph'
-	// Load Font Awesome:
-	require_css( 'http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css' );
-	?>
 	
 <div class="evo_container evo_container__header">
-	<div class="container">
 	<header class="row">
 		<div class="evo_container evo_container__page_top col-lg-12">
-	<?php
-		// ------------------------- "Page Top" CONTAINER EMBEDDED HERE --------------------------
-		// Display container and contents:
-		skin_container( NT_('Page Top'), array(
-				// The following params will be used as defaults for widgets included in this container:
-				'block_start'         => '<div class="evo_widget $wi_class$">',
-				'block_end'           => '</div>',
-				'block_display_title' => false,
-				'list_start'          => '<ul>',
-				'list_end'            => '</ul>',
-				'item_start'          => '<li>',
-				'item_end'            => '</li>',
-			) );
-		// ----------------------------- END OF "Page Top" CONTAINER -----------------------------
-	?>
+		<?php
+			// ------------------------- "Page Top" CONTAINER EMBEDDED HERE --------------------------
+			// Display container and contents:
+			skin_container( NT_('Page Top'), array(
+					// The following params will be used as defaults for widgets included in this container:
+					'block_start'         => '<div class="evo_widget $wi_class$">',
+					'block_end'           => '</div>',
+					'block_display_title' => false,
+					'list_start'          => '<ul>',
+					'list_end'            => '</ul>',
+					'item_start'          => '<li>',
+					'item_end'            => '</li>',
+				) );
+			// ----------------------------- END OF "Page Top" CONTAINER -----------------------------
+		?>
 		</div>
-	</header>
-	</div>
+	
 	<?php
 		// ------------------------- "Header" CONTAINER EMBEDDED HERE --------------------------
 		// Display container and contents:
@@ -81,45 +70,44 @@ siteskin_include( '_site_body_header.inc.php' );
 				'block_title_end'   => '</h1>',
 			) );
 		// ----------------------------- END OF "Header" CONTAINER -----------------------------
-	?>
+	?>	
+	</header>
 </div>
 
 <div class="container">
-
 <!-- BLOG NAVIGATION MENU -->
 		<nav class="col-md-12">
 			<div class="drop">
-			<input type="checkbox" id="toggle" />
-			<label for="toggle" class="toggle" onclick></label>
-			<ul class="menu">
-	<?php
-		// ------------------------- "Menu" CONTAINER EMBEDDED HERE --------------------------
-		// Display container and contents:
-		// Note: this container is designed to be a single <ul> list
-		skin_container( NT_('Menu'), array(
-				// The following params will be used as defaults for widgets included in this container:
-				'block_start'         => '',
-				'block_end'           => '',
-				'block_display_title' => false,
-				'list_start'          => '',
-				'list_end'            => '',
-				'item_start'          => '<li class="evo_widget $wi_class$">',
-				'item_end'            => '</li>',
-				'item_selected_start' => '<li class="active evo_widget $wi_class$">',
-				'item_selected_end'   => '</li>',
-				'item_title_before'   => '',
-				'item_title_after'    => '',
-			) );
-		// ----------------------------- END OF "Menu" CONTAINER -----------------------------
-	?>
-			</ul>
-		</div>
+				<input type="checkbox" id="toggle" />
+				<label for="toggle" class="toggle" onclick></label>
+				<ul class="menu">
+		<?php
+			// ------------------------- "Menu" CONTAINER EMBEDDED HERE --------------------------
+			// Display container and contents:
+			// Note: this container is designed to be a single <ul> list
+			skin_container( NT_('Menu'), array(
+					// The following params will be used as defaults for widgets included in this container:
+					'block_start'         => '',
+					'block_end'           => '',
+					'block_display_title' => false,
+					'list_start'          => '',
+					'list_end'            => '',
+					'item_start'          => '<li class="evo_widget $wi_class$">',
+					'item_end'            => '</li>',
+					'item_selected_start' => '<li class="active evo_widget $wi_class$">',
+					'item_selected_end'   => '</li>',
+					'item_title_before'   => '',
+					'item_title_after'    => '',
+				) );
+			// ----------------------------- END OF "Menu" CONTAINER -----------------------------
+		?>
+				</ul>
+			</div>
 		</nav>
 </div>
 
 <div class="container">
 <!-- =================================== START OF MAIN AREA =================================== -->
-	<div class="row">
         <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
 
 	<?php
@@ -335,8 +323,7 @@ siteskin_include( '_site_body_header.inc.php' );
 		// copying the matching php file into your skin directory.
 		// ------------------------- END OF MAIN CONTENT TEMPLATE ---------------------------
 	?>
-
-		</div>
+	
 	<?php
 	if( $Skin->get_setting( 'layout' ) != 'single_column' )
 	{
