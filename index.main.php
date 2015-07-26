@@ -12,7 +12,7 @@
  * to handle the request (based on $disp).
  *
  * @package evoskins
- * @subpackage bootstrap
+ * @subpackage bootstrap_blog
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
@@ -28,7 +28,7 @@ skin_init( $disp );
 
 // -------------------------- HTML HEADER INCLUDED HERE --------------------------
 skin_include( '_html_header.inc.php', array() );
-// Include Google Fonts code inside ""+
+// Include Google Fonts code inside ""
 echo "<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>";
 // -------------------------------- END OF HEADER --------------------------------
 
@@ -451,10 +451,11 @@ siteskin_include( '_site_body_header.inc.php' );
 			) );
 	?>
 
-		</div>
-	</footer>
-	</div>
-</div>
+		</div><!-- .col-md-12 -->
+	</footer><!-- .row -->
+	</div><!-- .container -->
+</div><!-- .footer-wrapper -->
+
 <?php
 // ---------------------------- SITE FOOTER INCLUDED HERE ----------------------------
 // If site footers are enabled, they will be included here:
@@ -464,7 +465,5 @@ siteskin_include( '_site_body_footer.inc.php' );
 
 // ------------------------- HTML FOOTER INCLUDED HERE --------------------------
 skin_include( '_html_footer.inc.php' );
-// Note: You can customize the default HTML footer by copying the
-// _html_footer.inc.php file into the current skin folder.
 // ------------------------------- END OF FOOTER --------------------------------
 ?>
