@@ -178,17 +178,16 @@ siteskin_include( '_site_body_header.inc.php' );
 			// ---------------------- ITEM BLOCK INCLUDED HERE ------------------------
 			skin_include( '_item_block.inc.php', array(
 					'content_mode' => 'auto',		// 'auto' will auto select depending on $disp-detail
-					// Comment template
-					'comment_start'         => '<div class="evo_comment panel panel-default">',
-					'comment_end'           => '</div>',
+					'comment_start'         => '<article class="evo_comment panel panel-default">',
+					'comment_end'           => '</article>',
 					'comment_avatar_before' => '<span class="evo_comment_avatar">',
 					'comment_avatar_after'  => '</span>',
-					'comment_rating_before' => '<div class="evo_comment-rating">',
+					'comment_rating_before' => '<div class="evo_comment_rating">',
 					'comment_rating_after'  => '</div>',
-					'comment_text_before'   => '<div class="evo_comment-text">',
+					'comment_text_before'   => '<div class="evo_comment_text">',
 					'comment_text_after'    => '</div>',
-					'comment_info_before'   => '<div class="evo_comment-info clear text-muted"><small>',
-					'comment_info_after'    => '</small></div></div>',
+					'comment_info_before'   => '<footer class="evo_comment_footer clear text-muted"><small>',
+					'comment_info_after'    => '</small></footer></div>',
 					'preview_start'         => '<div class="panel panel-warning" id="comment_preview">',
 					'preview_end'           => '</div>',
 					'comment_attach_info'   => get_icon( 'help', 'imgtag', array(
@@ -204,6 +203,7 @@ siteskin_include( '_site_body_header.inc.php' );
 					                           .' comment_form"><div class="panel-heading"><h3 class="no_of_comments">',
 					'form_title_end'        => '</h3></div>',
 					'after_comment_form'    => '</div>',
+					// Comment template
 				) );
 			// ----------------------------END ITEM BLOCK  ----------------------------
 
@@ -339,7 +339,8 @@ siteskin_include( '_site_body_header.inc.php' );
 <div class="footer-wrapper">
 	<div class="container">
 	<footer class="row">
-		<div class="col-md-12 center">
+		<div class="col-md-12">
+		<section class="evo_container evo_container__footer">
 	<?php
 		// Display container and contents:
 		skin_container( NT_("Footer"), array(
@@ -349,15 +350,14 @@ siteskin_include( '_site_body_header.inc.php' );
 			) );
 		// Note: Double quotes have been used around "Footer" only for test purposes.
 	?>
-	<p>
+	</section>
+	<p class="footer_text__credits">
 		<?php
 			// Display footer text (text can be edited in Blog Settings):
 			$Blog->footer_text( array(
 					'before'      => '',
 					'after'       => ' &bull; ',
 				) );
-
-		// TODO: dh> provide a default class for pTyp, too. Should be a name and not the ityp_ID though..?!
 		?>
 
 		<?php
@@ -406,7 +406,6 @@ siteskin_include( '_site_body_header.inc.php' );
 	</footer>
 	</div>
 </div>
-
 <?php
 // ---------------------------- SITE FOOTER INCLUDED HERE ----------------------------
 // If site footers are enabled, they will be included here:

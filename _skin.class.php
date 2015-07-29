@@ -55,76 +55,101 @@ class horizon_blog_Skin extends Skin
 	function get_param_definitions( $params )
 	{
 		$r = array_merge( array(
-				'layout' => array(
-					'label' => T_('Layout'),
-					'note' => '',
-					'defaultvalue' => 'right_sidebar',
-					'options' => array(
-							'single_column' => T_('Single column'),
-							'left_sidebar'  => T_('Left Sidebar'),
-							'right_sidebar' => T_('Right Sidebar'),
-						),
-					'type' => 'select',
+				'section_layout_start' => array(
+					'layout' => 'begin_fieldset',
+					'label'  => T_('Layout Settings')
 				),
-				'colorbox' => array(
-					'label' => T_('Colorbox Image Zoom'),
-					'note' => T_('Check to enable javascript zooming on images (using the colorbox script)'),
-					'defaultvalue' => 1,
-					'type' => 'checkbox',
+					'layout' => array(
+						'label' => T_('Layout'),
+						'note' => '',
+						'defaultvalue' => 'right_sidebar',
+						'options' => array(
+								'single_column' => T_('Single column'),
+								'left_sidebar'  => T_('Left Sidebar'),
+								'right_sidebar' => T_('Right Sidebar'),
+							),
+						'type' => 'select',
+					),
+				'section_layout_end' => array(
+					'layout' => 'end_fieldset',
 				),
-				'colorbox_vote_post' => array(
-					'label' => T_('Voting on Post Images'),
-					'note' => T_('Check this to enable AJAX voting buttons in the colorbox zoom view'),
-					'defaultvalue' => 1,
-					'type' => 'checkbox',
+				
+				
+				'section_colorbox_start' => array(
+					'layout' => 'begin_fieldset',
+					'label'  => T_('Colorbox Image Zoom')
 				),
-				'colorbox_vote_post_numbers' => array(
-					'label' => T_('Display Votes'),
-					'note' => T_('Check to display number of likes and dislikes'),
-					'defaultvalue' => 1,
-					'type' => 'checkbox',
+					'colorbox' => array(
+						'label' => T_('Colorbox Image Zoom'),
+						'note' => T_('Check to enable javascript zooming on images (using the colorbox script)'),
+						'defaultvalue' => 1,
+						'type' => 'checkbox',
+					),
+					'colorbox_vote_post' => array(
+						'label' => T_('Voting on Post Images'),
+						'note' => T_('Check this to enable AJAX voting buttons in the colorbox zoom view'),
+						'defaultvalue' => 1,
+						'type' => 'checkbox',
+					),
+					'colorbox_vote_post_numbers' => array(
+						'label' => T_('Display Votes'),
+						'note' => T_('Check to display number of likes and dislikes'),
+						'defaultvalue' => 1,
+						'type' => 'checkbox',
+					),
+					'colorbox_vote_comment' => array(
+						'label' => T_('Voting on Comment Images'),
+						'note' => T_('Check this to enable AJAX voting buttons in the colorbox zoom view'),
+						'defaultvalue' => 1,
+						'type' => 'checkbox',
+					),
+					'colorbox_vote_comment_numbers' => array(
+						'label' => T_('Display Votes'),
+						'note' => T_('Check to display number of likes and dislikes'),
+						'defaultvalue' => 1,
+						'type' => 'checkbox',
+					),
+					'colorbox_vote_user' => array(
+						'label' => T_('Voting on User Images'),
+						'note' => T_('Check this to enable AJAX voting buttons in the colorbox zoom view'),
+						'defaultvalue' => 1,
+						'type' => 'checkbox',
+					),
+					'colorbox_vote_user_numbers' => array(
+						'label' => T_('Display Votes'),
+						'note' => T_('Check to display number of likes and dislikes'),
+						'defaultvalue' => 1,
+						'type' => 'checkbox',
+					),
+				'section_colorbox_end' => array(
+					'layout' => 'end_fieldset',
 				),
-				'colorbox_vote_comment' => array(
-					'label' => T_('Voting on Comment Images'),
-					'note' => T_('Check this to enable AJAX voting buttons in the colorbox zoom view'),
-					'defaultvalue' => 1,
-					'type' => 'checkbox',
+				
+				
+				'section_username_start' => array(
+					'layout' => 'begin_fieldset',
+					'label'  => T_('Username options')
 				),
-				'colorbox_vote_comment_numbers' => array(
-					'label' => T_('Display Votes'),
-					'note' => T_('Check to display number of likes and dislikes'),
-					'defaultvalue' => 1,
-					'type' => 'checkbox',
-				),
-				'colorbox_vote_user' => array(
-					'label' => T_('Voting on User Images'),
-					'note' => T_('Check this to enable AJAX voting buttons in the colorbox zoom view'),
-					'defaultvalue' => 1,
-					'type' => 'checkbox',
-				),
-				'colorbox_vote_user_numbers' => array(
-					'label' => T_('Display Votes'),
-					'note' => T_('Check to display number of likes and dislikes'),
-					'defaultvalue' => 1,
-					'type' => 'checkbox',
-				),
-				'gender_colored' => array(
-					'label' => T_('Display gender'),
-					'note' => T_('Use colored usernames to differentiate men & women.'),
-					'defaultvalue' => 0,
-					'type' => 'checkbox',
-				),
-				'bubbletip' => array(
-					'label' => T_('Username bubble tips'),
-					'note' => T_('Check to enable bubble tips on usernames'),
-					'defaultvalue' => 0,
-					'type' => 'checkbox',
-				),
-				'autocomplete_usernames' => array(
-					'label' => T_('Autocomplete usernames'),
-					'note' => T_('Check to enable auto-completion of usernames entered after a "@" sign in the comment forms'),
-					'defaultvalue' => 1,
-					'type' => 'checkbox',
+					'gender_colored' => array(
+						'label' => T_('Display gender'),
+						'note' => T_('Use colored usernames to differentiate men & women.'),
+						'defaultvalue' => 0,
+						'type' => 'checkbox',
+					),
+					'bubbletip' => array(
+						'label' => T_('Username bubble tips'),
+						'note' => T_('Check to enable bubble tips on usernames'),
+						'defaultvalue' => 0,
+						'type' => 'checkbox',
+					),
+					'autocomplete_usernames' => array(
+						'label' => T_('Autocomplete usernames'),
+						'note' => T_('Check to enable auto-completion of usernames entered after a "@" sign in the comment forms'),
+						'defaultvalue' => 1,
+						'type' => 'checkbox',
+					),
+				'section_username_end' => array(
+					'layout' => 'end_fieldset',
 				),
 			), parent::get_param_definitions( $params ) );
 		return $r;
@@ -136,55 +161,25 @@ class horizon_blog_Skin extends Skin
 	 */
 	function display_init()
 	{
-		global $Messages, $debug;
-		require_js( '#jquery#', 'blog' );
-		// Initialize font-awesome icons and use them as a priority over the glyphicons, @see get_icon()
-		init_fontawesome_icons( 'fontawesome-glyphicons' );
-		require_js( '#bootstrap#', 'blog' );
-		require_css( '#bootstrap_css#', 'blog' );
-		//require_css( '#bootstrap_theme_css#', 'blog' );
-		if( $debug )
-		{	// Use readable CSS:
-			// rsc/less/bootstrap-basic_styles.less
-			// rsc/less/bootstrap-basic.less
-			// rsc/less/bootstrap-blog_base.less
-			// rsc/less/bootstrap-item_base.less
-			// rsc/less/bootstrap-evoskins.less
-			require_css( 'bootstrap-b2evo_base.bundle.css', 'blog' );  // CSS concatenation of the above
-		}
-		else
-		{	// Use minified CSS:
-			require_css( 'bootstrap-b2evo_base.bmin.css', 'blog' ); // Concatenation + Minifaction of the above
-		}
-		
-		// Make sure standard CSS is called ahead of custom CSS generated below:
-		if( $this->use_min_css == false 
-			|| $debug 
-			|| ( $this->use_min_css == 'check' && !file_exists(dirname(__FILE__).'/style.min.css' ) ) )
-		{	// Use readable CSS:
-			require_css( 'style.css', 'relative' );	// Relative to <base> tag (current skin folder)
-		}
-		else
-		{	// Use minified CSS:
-			require_css( 'style.min.css', 'relative' );	// Relative to <base> tag (current skin folder)
-		}
-	
-		// Colorbox (a lightweight Lightbox alternative) allows to zoom on images and do slideshows with groups of images:
-		if( $this->get_setting( 'colorbox' ) )
-		{
-			require_js_helper( 'colorbox', 'blog' );
-		}
-		// JS to init tooltip (E.g. on comment form for allowed file extensions)
-		add_js_headline( 'jQuery( function () { jQuery( \'[data-toggle="tooltip"]\' ).tooltip() } )' );
-		// Set bootstrap classes for messages
-		$Messages->set_params( array(
-				'class_success'  => 'alert alert-dismissible alert-success fade in',
-				'class_warning'  => 'alert alert-dismissible alert-warning fade in',
-				'class_error'    => 'alert alert-dismissible alert-danger fade in',
-				'class_note'     => 'alert alert-dismissible alert-info fade in',
-				'before_message' => '<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>',
+		global $Messages, $disp, $debug;
+
+		// Request some common features that the parent function (Skin::display_init()) knows how to provide:
+		parent::display_init( array(
+				'jquery',                  // Load jQuery
+				'font_awesome',            // Load Font Awesome (and use its icons as a priority over the Bootstrap glyphicons)
+				'bootstrap',               // Load Bootstrap (without 'bootstrap_theme_css')
+				'bootstrap_evo_css',       // Load the b2evo_base styles for Bootstrap (instead of the old b2evo_base styles)
+				'bootstrap_messages',      // Initialize $Messages Class to use Bootstrap styles
+				'style_css',               // Load the style.css file of the current skin
+				'colorbox',                // Load Colorbox (a lightweight Lightbox alternative + customizations for b2evo)
+				'bootstrap_init_tooltips', // Inline JS to init Bootstrap tooltips (E.g. on comment form for allowed file extensions)
+				'disp_auto',               // Automatically include additional CSS and/or JS required by certain disps (replace with 'disp_off' to disable this)
 			) );
+
 	}
+	
+	
+	
 	/**
 	 * Those templates are used for example by the messaging screens.
 	 */
@@ -287,6 +282,7 @@ class horizon_blog_Skin extends Skin
 					'sort_type' => 'basic'
 				);
 				break;
+
 			case 'blockspan_form':
 				// Form settings for filter area:
 				return array(
@@ -331,6 +327,7 @@ class horizon_blog_Skin extends Skin
 					'radio_oneline_start'    => '',
 					'radio_oneline_end'      => "\n",
 				);
+
 			case 'compact_form':
 			case 'Form':
 				// Default Form settings:
@@ -376,6 +373,7 @@ class horizon_blog_Skin extends Skin
 					'radio_oneline_start'    => '<label class="radio-inline">',
 					'radio_oneline_end'      => "</label>\n",
 				);
+
 			case 'linespan_form':
 				// Linespan form:
 				return array(
@@ -424,6 +422,7 @@ class horizon_blog_Skin extends Skin
 					'radio_oneline_start'    => '<label class="radio-inline">',
 					'radio_oneline_end'      => "</label>\n",
 				);
+
 			case 'fixed_form':
 				// Form with fixed label width:
 				return array(
@@ -468,6 +467,7 @@ class horizon_blog_Skin extends Skin
 					'radio_oneline_start'    => '<label class="radio-inline">',
 					'radio_oneline_end'      => "</label>\n",
 				);
+
 			case 'user_navigation':
 				// The Prev/Next links of users
 				return array(
@@ -482,6 +482,7 @@ class horizon_blog_Skin extends Skin
 					'next_no_user' => '',
 					'block_end'    => '</ul>',
 				);
+
 			case 'button_classes':
 				// Button classes
 				return array(
@@ -491,10 +492,12 @@ class horizon_blog_Skin extends Skin
 					'text'         => 'btn btn-default btn-xs',
 					'group'        => 'btn-group',
 				);
+
 			case 'tooltip_plugin':
 				// Plugin name for tooltips: 'bubbletip' or 'popover'
 				return 'popover';
 				break;
+
 			case 'plugin_template':
 				// Template for plugins
 				return array(
@@ -506,14 +509,96 @@ class horizon_blog_Skin extends Skin
 						'toolbar_group_after'  => '</div>',
 						'toolbar_button_class' => 'btn btn-default',
 					);
+
 			case 'modal_window_js_func':
 				// JavaScript function to initialize Modal windows, @see echo_user_ajaxwindow_js()
 				return 'echo_modalwindow_js_bootstrap';
 				break;
+
 			default:
 				// Delegate to parent class:
 				return parent::get_template( $name );
 		}
 	}
+
+
+	/**
+	 * Check if we can display a widget container
+	 *
+	 * @param string Widget container key: 'header', 'page_top', 'menu', 'sidebar', 'sidebar2', 'footer'
+	 * @param string Skin setting name
+	 * @return boolean TRUE to display
+	 */
+	function is_visible_container( $container_key, $setting_name = 'access_login_containers' )
+	{
+		$access = $this->get_setting( $setting_name );
+
+		return ( ! empty( $access ) && ! empty( $access[ $container_key ] ) );
+	}
+
+
+	/**
+	 * Check if we can display a sidebar for the current layout
+	 *
+	 * @param boolean TRUE to check if at least one sidebar container is visible
+	 * @return boolean TRUE to display a sidebar
+	 */
+	function is_visible_sidebar( $check_containers = false )
+	{
+		$layout = $this->get_setting( 'layout' );
+
+		if( $layout != 'left_sidebar' && $layout != 'right_sidebar' )
+		{ // Sidebar is not displayed for selected skin layout
+			return false;
+		}
+
+		if( $check_containers )
+		{ // Check if at least one sidebar container is visible
+			return ( $this->is_visible_container( 'sidebar' ) ||  $this->is_visible_container( 'sidebar2' ) );
+		}
+		else
+		{ // We should not check the visibility of the sidebar containers for this case
+			return true;
+		}
+	}
+
+
+	/**
+	 * Get value for attbiute "class" of column block
+	 * depending on skin setting "Layout"
+	 *
+	 * @return string
+	 */
+	function get_column_class()
+	{
+		switch( $this->get_setting( 'layout' ) )
+		{
+			case 'single_column':
+				// Single Column Large
+				return 'col-md-12';
+
+			case 'single_column_normal':
+				// Single Column
+				return 'col-xs-12 col-sm-12 col-md-12 col-lg-10 col-lg-offset-1';
+
+			case 'single_column_narrow':
+				// Single Column Narrow
+				return 'col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2';
+
+			case 'single_column_extra_narrow':
+				// Single Column Extra Narrow
+				return 'col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3';
+
+			case 'left_sidebar':
+				// Left Sidebar
+				return 'col-md-9 pull-right';
+
+			case 'right_sidebar':
+				// Right Sidebar
+			default:
+				return 'col-md-9';
+		}
+	}
 }
+
 ?>
