@@ -14,7 +14,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
  *
  * ATTENTION: if you make a new skin you have to change the class name below accordingly
  */
-class horizon_blog_Skin extends Skin
+class horizon_Skin extends Skin
 {
 	/**
 	 * Do we want to use style.min.css instead of style.css ?
@@ -59,6 +59,12 @@ class horizon_blog_Skin extends Skin
 					'layout' => 'begin_fieldset',
 					'label'  => T_('Layout Settings')
 				),
+					'front_bg_image' => array(
+						'label' => T_('Background image'),
+						'defaultvalue' => 'images/landscape-bg.jpg',
+						'type' => 'text',
+						'size' => '50'
+					),
 					'layout' => array(
 						'label' => T_('Layout'),
 						'note' => '',
@@ -71,6 +77,27 @@ class horizon_blog_Skin extends Skin
 						'type' => 'select',
 					),
 				'section_layout_end' => array(
+					'layout' => 'end_fieldset',
+				),
+				
+				
+				'section_custom_settigs_start' => array(
+					'layout' => 'begin_fieldset',
+					'label'  => T_('Custom Settings')
+				),
+					'page_bg_color' => array(
+						'label' => T_('Background color'),
+						'note' => T_('E-g: #ff0000 for red'),
+						'defaultvalue' => '#fff',
+						'type' => 'color',
+					),
+					'page_footer_color' => array(
+						'label' => T_('Footer color'),
+						'note' => T_('E-g: #000000 for black'),
+						'defaultvalue' => '#F2F2F2',
+						'type' => 'color',
+					),
+				'section_custom_settigs_end' => array(
 					'layout' => 'end_fieldset',
 				),
 				
@@ -176,6 +203,35 @@ class horizon_blog_Skin extends Skin
 				'disp_auto',               // Automatically include additional CSS and/or JS required by certain disps (replace with 'disp_off' to disable this)
 			) );
 
+		// Skin specific initializations:
+		global $media_url, $media_path;
+			
+		// Add custom CSS:
+		$custom_css = '';
+		
+		$bg_image = $this->get_setting( 'front_bg_image' );
+		if( ! empty( $bg_image ) && file_exists( $bg_image ) )
+		{ // Custom body background image:
+			$custom_css .= '#bg_picture { background-image: url('.$bg_image.") }\n";
+		}	
+		if( $color = $this->get_setting( 'page_bg_color' ) )
+		{ // Custom page background color:
+			$custom_css .= 'body, .panel-body, .panel-heading .panel-title, .clearfix, .widget_grid tr td { background-color: '.$color." }\n";
+		}
+		if( $color = $this->get_setting( 'page_footer_color' ) )
+		{ // Custom page background color:
+			$custom_css .= '.footer-wrapper { background-color: '.$color." }\n";
+		}
+		
+		if( ! empty( $custom_css ) )
+		{ // Function for custom_css:
+		$custom_css = '<style type="text/css">
+<!--
+'.$custom_css.'
+-->
+		</style>';
+		add_headline( $custom_css );
+		}			
 	}
 	
 	

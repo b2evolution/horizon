@@ -24,8 +24,8 @@ if( version_compare( $app_version, '6.4' ) < 0 )
 // This is the main template; it may be used to display very different things.
 // Do inits depending on current $disp:
 skin_init( $disp );
-
-
+// Check if current page has a big picture as background
+$is_pictured_page = in_array( $disp, array( 'front', 'login', 'register', 'lostpassword', 'activateinfo', 'access_denied' ) );
 // -------------------------- HTML HEADER INCLUDED HERE --------------------------
 skin_include( '_html_header.inc.php', array() );
 // Include Google Fonts code inside ""
@@ -39,7 +39,7 @@ siteskin_include( '_site_body_header.inc.php' );
 // ------------------------------- END OF SITE HEADER --------------------------------
 ?>
 	
-<div class="evo_container evo_container__header">
+<div class="evo_container evo_container__header" id="bg_picture">
 	<header class="row">
 		<div class="evo_container evo_container__page_top col-lg-12">
 		<?php
@@ -74,7 +74,7 @@ siteskin_include( '_site_body_header.inc.php' );
 	</header>
 </div>
 
-<div class="container">
+<div class="evo_container evo_container__menu">
 <!-- BLOG NAVIGATION MENU -->
 		<nav class="col-md-12">
 			<div class="drop">
