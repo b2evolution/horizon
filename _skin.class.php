@@ -76,6 +76,16 @@ class horizon_blog_Skin extends Skin
 							),
 						'type' => 'select',
 					),
+					'single_sidebar' => array(
+						'label' => T_('Sidebar layout on single post'),
+						'note' => '',
+						'defaultvalue' => 'no_sidebar',
+						'options' => array(
+								'no_sidebar' => T_('No sidebar'),
+								'yes_sidebar'  => T_('Same as other pages'),
+							),
+						'type' => 'select',
+					),				
 				'section_layout_end' => array(
 					'layout' => 'end_fieldset',
 				),
@@ -221,6 +231,11 @@ class horizon_blog_Skin extends Skin
 		if( $color = $this->get_setting( 'page_footer_color' ) )
 		{ // Custom page background color:
 			$custom_css .= '.footer-wrapper { background-color: '.$color." }\n";
+		}
+		
+	
+		if ($this->get_setting( 'layout' ) == 'single_column') {
+			$custom_css .= '.disp_single aside.col-md-3 { display: none;'." }\n";
 		}
 		
 		if( ! empty( $custom_css ) )
@@ -633,18 +648,6 @@ class horizon_blog_Skin extends Skin
 				// Single Column Large
 				return 'col-md-12';
 
-			case 'single_column_normal':
-				// Single Column
-				return 'col-xs-12 col-sm-12 col-md-12 col-lg-10 col-lg-offset-1';
-
-			case 'single_column_narrow':
-				// Single Column Narrow
-				return 'col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2';
-
-			case 'single_column_extra_narrow':
-				// Single Column Extra Narrow
-				return 'col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3';
-
 			case 'left_sidebar':
 				// Left Sidebar
 				return 'col-md-9 pull-right';
@@ -653,6 +656,21 @@ class horizon_blog_Skin extends Skin
 				// Right Sidebar
 			default:
 				return 'col-md-9';
+		}
+	}
+	
+	
+	function single_disp_sidebar()
+	{
+		switch( $this->get_setting( 'single_sidebar' ) )
+		{
+			case 'no_sidebar':
+				// Single Column Large
+			return 'col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2';
+
+			case 'yes_sidebar':
+				// Single Column
+			return $this->get_setting( 'layout' );
 		}
 	}
 }
