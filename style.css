@@ -1,13 +1,10 @@
+.sitewide_header {
+  margin-bottom: 0px !important;
+}
 .evo_container__header {
   margin-bottom: 20px;
-  margin-top: -15px;
+  margin-top: 0px;
   text-align: center;
-  background: url(images/landscape-bg.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  z-index: -1;
   padding-bottom: 15%;
 }
 .evo_container__header > header.row > .evo_widget {
@@ -41,6 +38,24 @@ header.row div:nth-child(2) {
 }
 .evo_container__page_top .ufld_icon_links {
   text-align: center;
+}
+#bg_picture {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  z-index: -999999;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#bg_picture img {
+  display: none;
+  width: 100%;
 }
 .widget_core_user_login #login_form .form-group {
   margin: 0;

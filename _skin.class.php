@@ -96,10 +96,16 @@ class horizon_blog_Skin extends Skin
 					'label'  => T_('Layout Settings')
 				),
 					'front_bg_image' => array(
-						'label' => T_('Background image'),
+						'label' => T_('Top background image'),
 						'defaultvalue' => 'images/landscape-bg.jpg',
 						'type' => 'text',
 						'size' => '50'
+					),
+					'front_bg_color' => array(
+						'label' => T_('Top background color'),
+						'note' => T_('Use this background color when image is not selected above.'),
+						'defaultvalue' => '#5d4a55',
+						'type' => 'color',
 					),
 					'layout' => array(
 						'label' => T_('Layout'),
@@ -258,10 +264,13 @@ class horizon_blog_Skin extends Skin
 		$custom_css = '';
 		
 		$bg_image = $this->get_setting( 'front_bg_image' );
-		if( ! empty( $bg_image ) && file_exists( $bg_image ) )
-		{ // Custom body background image:
-			$custom_css .= '#bg_picture { background-image: url('.$bg_image.") }\n";
-		}	
+		$front_bg_color = $this->get_setting( 'front_bg_color' );		
+		if( ! empty( $bg_image ) )
+		{ // Custom background image:
+			$custom_css .= '#bg_picture { background-image: url('.$bg_image."); }\n";
+		} else { // Custom top background color:
+			$custom_css .= '#bg_picture { background-color: '.$front_bg_color." }\n";
+		}
 		if( $color = $this->get_setting( 'page_bg_color' ) )
 		{ // Custom page background color:
 			$custom_css .= 'body, .panel-body, .panel-heading .panel-title, .clearfix, .widget_grid tr td { background-color: '.$color." }\n";
