@@ -588,11 +588,13 @@ html, body {
 body {
 	color: @color-base;
 	font-family: @font-family-base;
-	font-size: @font-size-base;
 	line-height: @line-height-base;
 	-webkit-animation: bugfix infinite 1s;
 	width: auto !important;
 	overflow-x: hidden !important;
+}
+.container, .evo_container, .footer-wrapper {
+	font-size: @font-size-base;
 }
 a:hover {
 	text-decoration: @no-decoration;
@@ -609,7 +611,7 @@ a:hover {
 // Navigation styles
 .drop {
 	z-index: 9999;
-	margin-top: -100px;
+	margin-top: -93px;
 	float: none;
 	display: inline-block;
 	margin-left: auto !important;
@@ -618,7 +620,7 @@ a:hover {
 }
 @media screen and (-webkit-min-device-pixel-ratio:0) { 
 	.drop {
-		margin-top: -99px;
+		margin-top: -93px;
 	}
 }
 .menu {

@@ -527,11 +527,15 @@ body {
 body {
   color: #333333;
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 18px;
   line-height: 1.6em;
   -webkit-animation: bugfix infinite 1s;
   width: auto !important;
   overflow-x: hidden !important;
+}
+.container,
+.evo_container,
+.footer-wrapper {
+  font-size: 18px;
 }
 a:hover {
   text-decoration: none;
@@ -546,7 +550,7 @@ a:hover {
 }
 .drop {
   z-index: 9999;
-  margin-top: -100px;
+  margin-top: -93px;
   float: none;
   display: inline-block;
   margin-left: auto !important;
@@ -555,7 +559,7 @@ a:hover {
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   .drop {
-    margin-top: -99px;
+    margin-top: -93px;
   }
 }
 .menu {
