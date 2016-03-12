@@ -11,6 +11,9 @@
   padding-left: 15px;
   padding-right: 15px;
 }
+.evo_container__header .widget_core_coll_search_form .compact_search_form .search_submit.submit.btn.btn-primary {
+  margin-top: 0;
+}
 header.row div:nth-child(2) {
   padding-top: 8%;
 }
