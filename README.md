@@ -23,6 +23,14 @@ Horizon is a fully responsive blog skin made especially for B2evolution CMS. Bas
 
 ### Update log
 
+#### v1.2
+<ul>
+  <li>Background image customization fix</li>
+  <li>Background color as an option instead of the background image</li>
+  <li>Layout fix for search form widget in header container</li>
+</ul>
+
+
 #### v1.1
 <ul>
   <li>Back-office configuration for enabled/disabled sidebar on single post display</li>
