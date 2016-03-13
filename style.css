@@ -665,6 +665,11 @@ a:hover {
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
+.menu li a:active,
+.menu li a:visited,
+.menu li a:link {
+  text-decoration: none;
+}
 .menu li a:hover:before,
 .menu li a:focus:before,
 .menu li a:active:before,
