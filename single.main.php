@@ -96,6 +96,8 @@ siteskin_include( '_site_body_header.inc.php' );
 					'item_end'            => '</li>',
 					'item_selected_start' => '<li class="active evo_widget $wi_class$">',
 					'item_selected_end'   => '</li>',
+					'item_last_start'     => '<li class="evo_widget $wi_class$ last">',
+					'item_last_end'       => '</li>',
 					'item_title_before'   => '',
 					'item_title_after'    => '',
 				) );
