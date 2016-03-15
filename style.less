@@ -1,3 +1,19 @@
+// --------- Universal item list widget & Recent posts widget --------- 
+	@import "../../rsc/less/_universal_item_list_widget.module.less";
+	div.widget_core_coll_item_list.evo_1pic__special ul li .item_first_image_placeholder:before, 
+	div.widget_core_coll_post_list.evo_1pic__special ul li .item_first_image_placeholder:before {
+		line-height: 1.42857143; // Important for the position of placeholder icon
+	}
+	div.widget_core_coll_item_list.evo_withexcerpt.evo_1pic__special ul li div.item_title a, 
+	div.widget_core_coll_post_list.evo_withexcerpt.evo_1pic__special ul li div.item_title a, 
+	div.widget_core_coll_item_list.evo_withteaser.evo_1pic__special ul li div.item_title a, 
+	div.widget_core_coll_post_list.evo_withteaser.evo_1pic__special ul li div.item_title a {
+		text-decoration: none;
+		font-size: 19px;
+		margin-bottom: 5px;
+	}
+// --------------------------------------------------------------------
+
 // Header
 .sitewide_header {
 	margin-bottom: 0px !important;
@@ -1293,9 +1309,8 @@ aside.col-md-3 a:not(.ufld_icon_links) {
 		display: inline-block;
 		margin: 18px;
 		width: 270px;
-		max-height: 650px;
 		vertical-align: top;
-		font-size: 15px;
+		font-size: 18px;
 		.widget_flow_blocks {
 			div {
 				margin: 10px;
@@ -1307,6 +1322,14 @@ aside.col-md-3 a:not(.ufld_icon_links) {
 					}
 				}
 			}
+		}
+	}
+	
+	a {
+		color: #697b94;
+		&:hover {
+			color: #697b94;
+			text-decoration: underline;
 		}
 	}
 }
@@ -1555,7 +1578,7 @@ main {
 		}
 	}
 	.search_result {
-		padding: 15px;
+		padding: 15px 0px;
 		margin-bottom: 20px;
 		.search_title a {
 			text-transform: uppercase;
@@ -1564,13 +1587,18 @@ main {
 				text-decoration: underline;
 			}
 		}
+		.search_content_wrap {
+			margin-left: 60px;
+		}
 		.result_content {
 			padding: 15px;
-			border-radius: 0px 0px 4px 4px;
-			border: 1px solid #ddd;
+			border-top: 1px solid #ddd; border-left: 1px solid #ddd; border-right: 1px solid #ddd;
 		}
 		.search_info {
 			font-size: 14px;
+			padding: 0 15px 15px 15px;
+			border-radius: 0px 0px 4px 4px;
+			border-bottom: 1px solid #ddd; border-left: 1px solid #ddd; border-right: 1px solid #ddd;
 			a {
 				img {
 					vertical-align: baseline;
