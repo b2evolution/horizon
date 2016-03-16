@@ -1351,6 +1351,21 @@ img.bCommentAvatar {
   float: left;
   margin: 8px 15px 5px 0px;
 }
+.evo_post_feedback_feed_msg {
+  margin-bottom: 60px;
+}
+.disp_single .fieldset_wrapper,
+.disp_page .fieldset_wrapper,
+.disp_single .fieldset_wrapper .panel-heading,
+.disp_page .fieldset_wrapper .panel-heading,
+.disp_single .fieldset_wrapper .action_icon,
+.disp_page .fieldset_wrapper .action_icon {
+  font-size: 18px;
+}
+.evo_comment__meta:first-child,
+.evo_comment__meta:last-child {
+  margin-top: 60px;
+}
 aside.col-md-3 a:not(.ufld_icon_links) {
   font-size: 17px;
   font-weight: 400;
