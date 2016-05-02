@@ -1,5 +1,5 @@
 // --------- Universal item list widget & Recent posts widget --------- 
-	@import "../../rsc/less/_universal_item_list_widget.module.less";
+/*	@import "../../rsc/less/_universal_item_list_widget.module.less";
 	div.widget_core_coll_item_list.evo_1pic__special ul li .item_first_image_placeholder:before, 
 	div.widget_core_coll_post_list.evo_1pic__special ul li .item_first_image_placeholder:before {
 		line-height: 1.42857143; // Important for the position of placeholder icon
@@ -11,7 +11,7 @@
 		text-decoration: none;
 		font-size: 19px;
 		margin-bottom: 5px;
-	}
+	}*/
 // --------------------------------------------------------------------
 
 // Header
@@ -1320,7 +1320,6 @@ aside.col-md-3 a:not(.ufld_icon_links) {
 		text-align: left;
 		display: inline-block;
 		margin: 18px;
-		width: 270px;
 		vertical-align: top;
 		font-size: 18px;
 		.widget_flow_blocks {
@@ -1343,6 +1342,10 @@ aside.col-md-3 a:not(.ufld_icon_links) {
 			color: #697b94;
 			text-decoration: underline;
 		}
+	}
+	
+	.widget_core_org_members .evo_org_member {
+		background-color: #f2f2f2;
 	}
 }
 
@@ -1507,6 +1510,14 @@ aside.col-md-3 a:not(.ufld_icon_links) {
 	}
 }
 
+@media only screen and (min-width: 768px) {
+	.evo_container__sidebar, .evo_container__sidebar2 {
+		.widget_core_org_members .evo_org_member {
+			width: 100%;
+		}
+	}
+}
+
 // Fixes 
 .action_messages ul li {
 	list-style-type: none !important;
@@ -1659,14 +1670,12 @@ main {
 			text-decoration: underline !important;
 		}
 	}
-	
-	// User disp
 }
 
 // Widgets
 // Organization Members widget
 .widget_core_org_members {
-	margin: 5em 0 30px;
+	margin: 0 0 30px;
 	img {
 		display: inline-block;
 	}
