@@ -524,7 +524,6 @@ body {
   box-shadow: none !important;
 }
 .transition {
-  -webkit-transition: all 0.25s ease-out;
   /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
   transition: all 0.25s ease-out;
   /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
@@ -666,11 +665,9 @@ a:hover {
   -webkit-transform: translateY(6px);
   -ms-transform: translateY(6px);
       transform: translateY(6px);
-  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
   transition-property: transform;
-  -webkit-transition-duration: 0.2s;
   transition-duration: 0.2s;
-  -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
 .menu li a:active,
@@ -803,7 +800,6 @@ a:hover {
   opacity: 1;
   border-radius: 5px;
   box-shadow: 3px 15px 5px -10px rgba(0, 0, 0, 0.25);
-  -webkit-transition: all 0.25s ease-out;
   /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
   transition: all 0.25s ease-out;
   /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
@@ -873,7 +869,6 @@ a:hover {
   background-color: #697b94;
   border: 1px solid #697b94;
   margin: 0px 5px 5px 0px;
-  -webkit-transition: all 0.25s ease-out;
   /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
   transition: all 0.25s ease-out;
   /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
@@ -888,7 +883,6 @@ a:hover {
   border: 1px solid rgba(0, 0, 0, 0.1);
   margin: 0px 5px 5px 0px;
   color: #697b94;
-  -webkit-transition: all 0.25s ease-out;
   /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
   transition: all 0.25s ease-out;
   /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
@@ -937,11 +931,8 @@ a:hover {
   background: #333333;
   padding-bottom: 2px;
   height: 2px;
-  -webkit-transition-property: right;
   transition-property: right;
-  -webkit-transition-duration: 0.25s;
   transition-duration: 0.25s;
-  -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
 .container .col-md-9 .evo_widget li a:hover:before,
@@ -955,8 +946,7 @@ a:hover {
 .container .col-md-9 .evo_widget li a,
 .feedback_feed_msg a {
   color: #697b94 !important;
-  -webkit-transition: 0s all;
-          transition: 0s all;
+  transition: 0s all;
 }
 .container .col-md-9 .evo_widget li a:hover,
 .feedback_feed_msg a:hover {
@@ -1018,9 +1008,7 @@ a:hover {
   backface-visibility: hidden;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
-  -webkit-transition-property: color;
   transition-property: color;
-  -webkit-transition-duration: 0.2s;
   transition-duration: 0.3s;
 }
 .evo_post__full_text .evo_post_more_link a:hover {
@@ -1041,11 +1029,9 @@ a:hover {
   -webkit-transform-origin: 50% 0;
   -ms-transform-origin: 50% 0;
       transform-origin: 50% 0;
-  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
   transition-property: transform;
-  -webkit-transition-duration: 0.2s;
   transition-duration: 0.2s;
-  -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
 .evo_post__full_text .evo_post_more_link a:hover,
@@ -1204,7 +1190,6 @@ aside.col-md-3 a:not(.ufld_icon_links):hover {
   height: 40px;
   border-radius: 5px 5px 5px 5px !important;
   border: 1px solid #333333;
-  -webkit-transition: all 0.25s ease-out;
   /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
   transition: all 0.25s ease-out;
   /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
@@ -1311,7 +1296,6 @@ aside.col-md-3 a:not(.ufld_icon_links):hover {
 }
 .evo_container__footer .evo_widget .widget_flow_blocks div a img {
   border-radius: 50%;
-  -webkit-transition: all 0.25s ease-out;
   /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
   transition: all 0.25s ease-out;
   /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
