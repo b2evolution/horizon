@@ -104,7 +104,7 @@ class horizon_blog_Skin extends Skin
 					),
 					'front_bg_color' => array(
 						'label' => T_('Top background color'),
-						'note' => T_('Use this background color when image is not selected above.'),
+						'note' => T_('This color will be used if Background image is not set or does not exist.'),
 						'defaultvalue' => '#5d4a55',
 						'type' => 'color',
 					),
