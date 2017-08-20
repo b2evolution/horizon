@@ -353,6 +353,10 @@ textarea.message_text {
 	}
 }
 
+.evo_post__full_text.clearfix {
+	background: transparent !important;
+}
+
 .evo_post {
 	margin-bottom: 2em;
 	.evo_post_title h2 {		
@@ -367,10 +371,13 @@ textarea.message_text {
 	.evo_image_block {
 		margin-top: 0px;
 	}
-	.evo_post__full_text a {
-		color: #697b94;
-		&:hover {
-			text-decoration: underline;
+	.evo_post__full_text {
+		background: transparent;
+		a {
+			color: #697b94;
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 	}
 	h3 {
@@ -788,6 +795,11 @@ a:hover {
 	&:before {
 		background: none;
 	}
+}
+.pagination li.active a {
+	color: #fff !important;
+	background-color: @color-base !important;
+	border-color: @color-base !important;
 }
 .content_full blockquote {
 	border: none;

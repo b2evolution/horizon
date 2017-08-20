@@ -274,7 +274,7 @@ class horizon_blog_Skin extends Skin
 		}
 		if( $color = $this->get_setting( 'page_bg_color' ) )
 		{ // Custom page background color:
-			$custom_css .= 'body, .panel-body, .panel-heading .panel-title, .clearfix, .widget_grid tr td { background-color: '.$color." }\n";
+			$custom_css .= '#skin_wrapper, .panel-body, .panel-heading .panel-title, .clearfix, .widget_grid tr td { background-color: '.$color." }\n";
 		}
 		if( $color = $this->get_setting( 'page_footer_color' ) )
 		{ // Custom page background color:
