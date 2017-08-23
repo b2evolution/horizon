@@ -25,7 +25,7 @@ $params = array_merge( array(
 		// Controlling the title:
 		'disp_title'                 => true,
 		'item_title_line_before'     => '<div class="evo_post_title">',	// Note: we use an extra class because it facilitates styling
-			'item_title_before'          => '<h2>',	
+			'item_title_before'          => '<h2>',
 			'item_title_after'           => '</h2>',
 			'item_title_single_before'   => '<h2>',	// This replaces the above in case of disp=single or disp=page
 			'item_title_single_after'    => '</h2>',
@@ -37,7 +37,7 @@ $params = array_merge( array(
 		'author_link_text'           => 'preferredname',
 	), $params );
 
-	
+
 echo '<div id="styled_content_block">'; // Beginning of post display  TODO: get rid of this ID, use class .evo_content_block instead
 ?>
 
@@ -148,7 +148,7 @@ echo '<div id="styled_content_block">'; // Beginning of post display  TODO: get 
 
 <?php if( ! $Item->is_intro() ) { ?>
 	<footer>
-	
+
 		<?php
 		// List all tags attached to this post:
 		$Item->tags( array(
@@ -165,9 +165,9 @@ echo '<div id="styled_content_block">'; // Beginning of post display  TODO: get 
 							'type' => 'comments',
 							'link_before' => '',
 							'link_after' => '',
-							'link_text_zero' => T_('<span>Leave a comment <i class="fa fa-angle-double-right"></i></span>'),
-							'link_text_one' => T_('1 <i class="fa fa-comments"></i>'),
-							'link_text_more' => T_('%d <i class="fa fa-comments"></i>'),
+							'link_text_zero' => '<span>'.T_('Leave a comment').' <i class="fa fa-angle-double-right"></i></span>',
+							'link_text_one' => '1 <i class="fa fa-comments"></i>',
+							'link_text_more' => '%d <i class="fa fa-comments"></i>',
 							'link_title' => '#',
 						) );
 
@@ -184,7 +184,7 @@ echo '<div id="styled_content_block">'; // Beginning of post display  TODO: get 
 		?>
 		</nav>
 	</footer>
-	
+
 <?php } ?>
 
 	<?php
