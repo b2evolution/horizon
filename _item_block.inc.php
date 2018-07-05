@@ -7,7 +7,7 @@
  *
  * b2evolution - {@link http://b2evolution.net/}
  * Released under GNU GPL License - {@link http://b2evolution.net/about/gnu-gpl-license}
- * @copyright (c)2003-2015 by Francois Planque - {@link http://fplanque.com/}
+ * @copyright (c)2003-2018 by Francois Planque - {@link http://fplanque.com/}
  *
  * @package evoskins
  */
@@ -35,10 +35,11 @@ $params = array_merge( array(
 		'image_class'                => 'img-responsive',
 		'image_size'                 => 'fit-1280x720',
 		'author_link_text'           => 'preferredname',
+		'more_link_text'             => '#', // Default value '#' == T_('Full story').' &raquo;'
 	), $params );
 
 
-echo '<div id="styled_content_block">'; // Beginning of post display  TODO: get rid of this ID, use class .evo_content_block instead
+echo '<div class="evo_content_block">'; // Beginning of post display
 ?>
 
 <article id="<?php $Item->anchor_id() ?>" class="<?php $Item->div_classes( $params ) ?>" lang="<?php $Item->lang() ?>">
@@ -52,7 +53,7 @@ echo '<div id="styled_content_block">'; // Beginning of post display  TODO: get 
 		{
 			echo $params['item_title_line_before'];
 
-			if( $disp == 'single' && $disp == 'page' && $disp == 'posts' )
+			if( $disp == 'single' || $disp == 'page' )
 			{
 				$title_before = $params['item_title_single_before'];
 				$title_after = $params['item_title_single_after'];
@@ -93,42 +94,29 @@ echo '<div id="styled_content_block">'; // Beginning of post display  TODO: get 
 	<?php
 		if( $Item->status != 'published' )
 		{
-			$Item->status( array( 'format' => 'styled' ) );
+			$Item->format_status( array(
+					'template' => '<div class="evo_status evo_status__$status$ badge pull-right" data-toggle="tooltip" data-placement="top" title="$tooltip_title$">$status_title$</div>',
+				) );
 		}
-		// Permalink:
-		$Item->permanent_link( array(
-				'text' => '#icon#',
+
+		if( $disp != 'page' )
+		{
+			// ------------------------- "Item Single - Header" CONTAINER EMBEDDED HERE --------------------------
+			// Display container contents:
+			skin_container( /* TRANS: Widget container name */ NT_('Item Single Header'), array(
+				'widget_context' => 'item',	// Signal that we are displaying within an Item
+				// The following (optional) params will be used as defaults for widgets included in this container:
+				// This will enclose each widget in a block:
+				'block_start' => '<div class="evo_widget $wi_class$">',
+				'block_end' => '</div>',
+				// This will enclose the title of each widget:
+				'block_title_start' => '<h3>',
+				'block_title_end' => '</h3>',
+
+				'author_link_text' => $params['author_link_text'],
 			) );
-
-		// We want to display the post time:
-		$Item->issue_time( array(
-				'before'      => ' '.T_('posted on').' ',
-				'after'       => ' ',
-				'time_format' => 'M j, Y',
-			) );
-
-		// Author
-		$Item->author( array(
-			'before'    => ' '.T_('by').' ',
-			'after'     => ' ',
-			'link_text' => $params['author_link_text'],
-		) );
-
-		// Categories
-		$Item->categories( array(
-			'before'          => T_('in').' ',
-			'after'           => ' ',
-			'include_main'    => true,
-			'include_other'   => true,
-			'include_external'=> true,
-			'link_categories' => true,
-		) );
-
-		// Link for editing
-		$Item->edit_link( array(
-			'before'    => ' &bull; ',
-			'after'     => '',
-		) );
+			// ----------------------------- END OF "Item Single - Header" CONTAINER -----------------------------
+		}
 	?>
 	</div>
 	<?php
@@ -137,6 +125,88 @@ echo '<div id="styled_content_block">'; // Beginning of post display  TODO: get 
 	</header>
 
 	<?php
+	if( $disp == 'single' )
+	{
+		?>
+		<div class="evo_container evo_container__item_single">
+		<?php
+		// ------------------------- "Item Single" CONTAINER EMBEDDED HERE --------------------------
+		// Display container contents:
+		skin_container( /* TRANS: Widget container name */ NT_('Item Single'), array(
+			'widget_context' => 'item',	// Signal that we are displaying within an Item
+			// The following (optional) params will be used as defaults for widgets included in this container:
+			// This will enclose each widget in a block:
+			'block_start' => '<div class="evo_widget $wi_class$">',
+			'block_end' => '</div>',
+			// This will enclose the title of each widget:
+			'block_title_start' => '<h3>',
+			'block_title_end' => '</h3>',
+			// Template params for "Item Link" widget
+			'widget_item_link_before'    => '<p class="evo_post_link">',
+			'widget_item_link_after'     => '</p>',
+			// Template params for "Item Tags" widget
+			'widget_item_tags_before'    => '<nav class="small post_tags">',
+			'widget_item_tags_after'     => '</nav>',
+			// Params for skin file "_item_content.inc.php"
+			'widget_item_content_params' => $params,
+			// Template params for "Item Attachments" widget:
+			'widget_item_attachments_params' => array(
+					'limit_attach'       => 1000,
+					'before'             => '<div class="evo_post_attachments"><h3>'.T_('Attachments').':</h3><ul class="evo_files">',
+					'after'              => '</ul></div>',
+					'before_attach'      => '<li class="evo_file">',
+					'after_attach'       => '</li>',
+					'before_attach_size' => ' <span class="evo_file_size">(',
+					'after_attach_size'  => ')</span>',
+				),
+		) );
+		// ----------------------------- END OF "Item Single" CONTAINER -----------------------------
+		?>
+		</div>
+		<?php
+	}
+	elseif( $disp == 'page' )
+	{
+		?>
+		<div class="evo_container evo_container__item_page">
+		<?php
+		// ------------------------- "Item Page" CONTAINER EMBEDDED HERE --------------------------
+		// Display container contents:
+		skin_container( /* TRANS: Widget container name */ NT_('Item Page'), array(
+			'widget_context' => 'item',	// Signal that we are displaying within an Item
+			// The following (optional) params will be used as defaults for widgets included in this container:
+			// This will enclose each widget in a block:
+			'block_start' => '<div class="evo_widget $wi_class$">',
+			'block_end' => '</div>',
+			// This will enclose the title of each widget:
+			'block_title_start' => '<h3>',
+			'block_title_end' => '</h3>',
+			// Template params for "Item Link" widget
+			'widget_item_link_before'    => '<p class="evo_post_link">',
+			'widget_item_link_after'     => '</p>',
+			// Template params for "Item Tags" widget
+			'widget_item_tags_before'    => '<nav class="small post_tags">'.T_('Tags').': ',
+			'widget_item_tags_after'     => '</nav>',
+			// Params for skin file "_item_content.inc.php"
+			'widget_item_content_params' => $params,
+			// Template params for "Item Attachments" widget:
+			'widget_item_attachments_params' => array(
+					'limit_attach'       => 1000,
+					'before'             => '<div class="evo_post_attachments"><h3>'.T_('Attachments').':</h3><ul class="evo_files">',
+					'after'              => '</ul></div>',
+					'before_attach'      => '<li class="evo_file">',
+					'after_attach'       => '</li>',
+					'before_attach_size' => ' <span class="evo_file_size">(',
+					'after_attach_size'  => ')</span>',
+				),
+		) );
+		// ----------------------------- END OF "Item Page" CONTAINER -----------------------------
+		?>
+		</div>
+		<?php
+	}
+	else
+	{
 	// this will create a <section>
 		// ---------------------- POST CONTENT INCLUDED HERE ----------------------
 		skin_include( '_item_content.inc.php', $params );
@@ -144,20 +214,11 @@ echo '<div id="styled_content_block">'; // Beginning of post display  TODO: get 
 		// /skins/_item_content.inc.php file into the current skin folder.
 		// -------------------------- END OF POST CONTENT -------------------------
 	// this will end a </section>
+	}
 	?>
 
 <?php if( ! $Item->is_intro() ) { ?>
 	<footer>
-
-		<?php
-		// List all tags attached to this post:
-		$Item->tags( array(
-				'before'    => '<nav class="small post_tags"><p>Tags: </p>',
-				'after'     => '</nav>',
-				'separator' => '',
-			) );
-		?>
-
 		<nav class="small post_comments_link">
 		<?php
 			// Link to comments, trackbacks, etc.:
