@@ -89,7 +89,7 @@ class horizon_blog_Skin extends Skin
 	 * This should NOT be protected. It should be used INSTEAD of file parsing.
 	 * File parsing should only be used if this function is not defined
 	 *
-	 * @return array
+	 * @return array Array which overrides default containers; Empty array means to use all default containers.
 	 */
 	function get_declared_containers()
 	{
