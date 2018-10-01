@@ -46,58 +46,10 @@ echo '<div class="evo_content_block">'; // Beginning of post display
 
 	<header>
 	<?php
-		$Item->locale_temp_switch(); // Temporarily switch to post locale (useful for multilingual blogs)
+	$Item->locale_temp_switch(); // Temporarily switch to post locale (useful for multilingual blogs)
 
-		// ------- Title -------
-		if( $params['disp_title'] )
-		{
-			echo $params['item_title_line_before'];
-
-			if( $disp == 'single' || $disp == 'page' )
-			{
-				$title_before = $params['item_title_single_before'];
-				$title_after = $params['item_title_single_after'];
-			}
-			else
-			{
-				$title_before = $params['item_title_before'];
-				$title_after = $params['item_title_after'];
-			}
-
-			// POST TITLE:
-			$Item->title( array(
-					'before'    => $title_before,
-					'after'     => $title_after,
-					'link_type' => '#'
-				) );
-
-			// EDIT LINK:
-			if( $Item->is_intro() )
-			{ // Display edit link only for intro posts, because for all other posts the link is displayed on the info line.
-				$Item->edit_link( array(
-							'before' => '<div class="'.button_class( 'group' ).'">',
-							'after'  => '</div>',
-							'text'   => $Item->is_intro() ? get_icon( 'edit' ).' '.T_('Edit Intro') : '#',
-							'class'  => button_class( 'text' ),
-						) );
-			}
-
-			echo $params['item_title_line_after'];
-		}
-	?>
-
-	<?php
 	if( ! $Item->is_intro() )
 	{ // Don't display the following for intro posts
-	?>
-	<div class="small text-muted">
-	<?php
-		if( $Item->status != 'published' )
-		{
-			$Item->format_status( array(
-					'template' => '<div class="evo_status evo_status__$status$ badge pull-right" data-toggle="tooltip" data-placement="top" title="$tooltip_title$">$status_title$</div>',
-				) );
-		}
 
 		if( $disp != 'page' )
 		{
@@ -113,14 +65,29 @@ echo '<div class="evo_content_block">'; // Beginning of post display
 				// This will enclose the title of each widget:
 				'block_title_start' => '<h3>',
 				'block_title_end' => '</h3>',
+				// Item Next/Previous widget template:
+				'widget_item_next_previous_params' => array(
+					'block_start' => '<ul class="pager">',
+					'prev_start'  => '<li class="previous">',
+					'prev_end'    => '</li>',
+					'next_start'  => '<li class="next">',
+					'next_end'    => '</li>',
+					'block_end'   => '</ul>',
+				),
+				// Controlling the title:
+				'widget_item_title_params'  => array(
+					'before' => '<div class="evo_post_title"><h2>',
+					'after' => '</h2></div>',
+				),
+				// Item Visibility Badge widget template:
+				'widget_item_visibility_badge_display'  => ( ! $Item->is_intro() && $Item->status != 'published' ),
+				'widget_item_visibility_badge_template' => '<div class="evo_status evo_status__$status$ badge pull-right" data-toggle="tooltip" data-placement="top" title="$tooltip_title$">$status_title$</div>',
 
 				'author_link_text' => $params['author_link_text'],
 			) );
 			// ----------------------------- END OF "Item Single - Header" CONTAINER -----------------------------
 		}
-	?>
-	</div>
-	<?php
+
 	}
 	?>
 	</header>

@@ -38,7 +38,7 @@ echo "<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700
 siteskin_include( '_site_body_header.inc.php' );
 // ------------------------------- END OF SITE HEADER --------------------------------
 ?>
-	
+
 <div class="evo_container evo_container__header" id="bg_picture">
 	<header class="row">
 		<?php
@@ -73,7 +73,7 @@ siteskin_include( '_site_body_header.inc.php' );
 				'block_title_end'   => '</h1>',
 			) );
 		// ----------------------------- END OF "Header" CONTAINER -----------------------------
-	?>	
+	?>
 	</header>
 </div>
 
@@ -113,12 +113,12 @@ siteskin_include( '_site_body_header.inc.php' );
 
 <div class="container">
 <!-- =================================== START OF MAIN AREA =================================== -->
-        <div class="<?php 
+        <div class="<?php
 			if( $Skin->get_setting( 'single_sidebar' ) != 'no_sidebar' ) {
-				echo $Skin->get_column_class(); 
+				echo $Skin->get_column_class();
 			}
 			else {
-				echo 'col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2'; 
+				echo 'col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2';
 			}
 		?>">
 
@@ -132,19 +132,6 @@ siteskin_include( '_site_body_header.inc.php' );
 			) );
 		// --------------------------------- END OF MESSAGES ---------------------------------
 	}
-	?>
-
-	<?php
-		// ------------------- PREV/NEXT POST LINKS (SINGLE POST MODE) -------------------
-		item_prevnext_links( array(
-				'block_start' => '<ul class="pager">',
-				'prev_start'  => '<li class="previous">',
-				'prev_end'    => '</li>',
-				'next_start'  => '<li class="next">',
-				'next_end'    => '</li>',
-				'block_end'   => '</ul>',
-			) );
-		// ------------------------- END OF PREV/NEXT POST LINKS -------------------------
 	?>
 
 	<?php
@@ -340,7 +327,7 @@ siteskin_include( '_site_body_header.inc.php' );
 		// ------------------------- END OF MAIN CONTENT TEMPLATE ---------------------------
 	?>
 	</div>
-	
+
 	<?php
 	if( $Skin->get_setting( 'single_sidebar' ) != 'no_sidebar' )
 	{
@@ -424,7 +411,7 @@ siteskin_include( '_site_body_header.inc.php' );
 		?>
 	</aside>
 	<?php } else {
-		
+
 	} ?>
 	</div>
 </div><!-- ../container -->

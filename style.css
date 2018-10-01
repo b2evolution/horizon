@@ -1,11 +1,11 @@
 /*	@import "../../rsc/less/_universal_item_list_widget.module.less";
-	div.widget_core_coll_item_list.evo_1pic__special ul li .item_first_image_placeholder:before, 
+	div.widget_core_coll_item_list.evo_1pic__special ul li .item_first_image_placeholder:before,
 	div.widget_core_coll_post_list.evo_1pic__special ul li .item_first_image_placeholder:before {
 		line-height: 1.42857143; // Important for the position of placeholder icon
 	}
-	div.widget_core_coll_item_list.evo_withexcerpt.evo_1pic__special ul li div.item_title a, 
-	div.widget_core_coll_post_list.evo_withexcerpt.evo_1pic__special ul li div.item_title a, 
-	div.widget_core_coll_item_list.evo_withteaser.evo_1pic__special ul li div.item_title a, 
+	div.widget_core_coll_item_list.evo_withexcerpt.evo_1pic__special ul li div.item_title a,
+	div.widget_core_coll_post_list.evo_withexcerpt.evo_1pic__special ul li div.item_title a,
+	div.widget_core_coll_item_list.evo_withteaser.evo_1pic__special ul li div.item_title a,
 	div.widget_core_coll_post_list.evo_withteaser.evo_1pic__special ul li div.item_title a {
 		text-decoration: none;
 		font-size: 19px;
@@ -339,6 +339,9 @@ textarea.message_text {
 }
 .evo_post .evo_comment small a.permalink_right {
   color: #337ab7 !important;
+}
+.evo_post .evo_comment .floatright {
+  margin-top: auto;
 }
 form#user_checkchanges.evo_form {
   border: none;
