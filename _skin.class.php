@@ -16,7 +16,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
  */
 class horizon_blog_Skin extends Skin
 {
-	var $version = '7.3.3';
+	var $version = '7.3.4';
 	/**
 	 * Do we want to use style.min.css instead of style.css ?
 	 */
